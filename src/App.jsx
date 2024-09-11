@@ -9,9 +9,9 @@ import WorkExperience from './sections/Experience.jsx';
 
 const App = () => {
   return (
-    <main className="max-w-7xl mx-auto relative">
+    <main className=" overflow-x-clip px-9 sm:px-4 relative">
       <Navbar />
-      {/* <Hero /> */}
+      <Hero />
       {/* <div className="h-screen"></div> */}
       {/* <About /> */}
       {/* <Projects /> */}
