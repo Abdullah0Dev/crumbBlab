@@ -12,18 +12,18 @@ const App = () => {
     <main className=" overflow-x-clip px-9 sm:px-4 relative">
       <Navbar />
       <Hero />
+      <Clients />
       {/* <div className="h-screen"></div> */}
       {/* <About /> */}
       {/* <Projects /> */}
-      {/* <Clients /> */}
       {/* <WorkExperience /> */}
       {/* <Contact /> */}
 
       {/* <div className="absolute z-20 bg-blue-50 bottom-0">
 
 
+</div> */}
       <Footer />
-      </div> */}
     </main>
   );
 };

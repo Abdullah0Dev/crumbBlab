@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen w-full max-xl:flex-col items-center flex  relative" id="home">
       <img src="/assets/spotlight2.png" alt="spotlight" className='absolute top-0 right-0 z-0' />
-    
+ 
       <div className=" w-3/5 mx-auto flex  max-xl:w-full   flex-col sm:mt-36 mt-20 c-space gap-x-3">
         <p className="hero_tag text-gray_gradient">
           Transform<span className="text-purple-300 xl:text-7xl">. </span> Grow
@@ -42,29 +42,11 @@ const Hero = () => {
           </a>
         </div>
       </div>
+      
       <div className="w-2/3">
         <img src="/assets/hero-img.png" alt="website-builder" className="object-contain" />
       </div>
-
-      <div className="w-full h-full absolute -inset-10">
-        <Canvas className="w-full h-full">
-          <Suspense fallback={<CanvasLoader />}>
-            <Leva hidden />
-            <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-
-            <group>
-              <Target position={sizes.targetPosition} />
-              <ReactLogo position={sizes.reactLogoPosition} />
-              <Rings position={sizes.ringPosition} />
-              <Cube position={sizes.cubePosition} />
-            </group>
-
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 10]} intensity={0.5} />
-          </Suspense>
-        </Canvas> 
-      </div>
-       
+ 
     </section>
   );
 };

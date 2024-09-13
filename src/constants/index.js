@@ -20,41 +20,41 @@ export const navLinks = [
     href: '#contact',
   },
 ];
-
 export const clientReviews = [
   {
     id: 1,
-    name: 'Emily Johnson',
-    position: 'Marketing Director at GreenLeaf',
+    name: 'Sarah Thompson',
+    position: 'Creative Director at PixelWave Studio',
     img: 'assets/review1.png',
     review:
-      'Working with Adrian was a fantastic experience. He transformed our outdated website into a modern, user-friendly platform. His attention to detail and commitment to quality are unmatched. Highly recommend him for any web dev projects.',
+      'Collaborating with CrumBlab for our logo design and brand guidelines was an absolute pleasure. They captured our vision perfectly, delivering designs that were not only creative but also aligned with our brand identity. The professionalism and attention to detail were exceptional!',
   },
   {
     id: 2,
-    name: 'Mark Rogers',
-    position: 'Founder of TechGear Shop',
+    name: 'James Martinez',
+    position: 'Owner of SocialBoost Agency',
     img: 'assets/review2.png',
     review:
-      'Adrian’s expertise in web development is truly impressive. He delivered a robust and scalable solution for our e-commerce site, and our online sales have significantly increased since the launch. He’s a true professional! Fantastic work.',
+      'CrumBlab’s work on our social media banners and product post editing was top-notch. Their ability to understand our brand’s voice and translate it visually made a huge difference in our digital presence. Highly recommended for anyone looking to enhance their social media game!',
   },
   {
     id: 3,
-    name: 'John Dohsas',
-    position: 'Project Manager at UrbanTech ',
+    name: 'Linda Carter',
+    position: 'Founder of BrightFocus Marketing',
     img: 'assets/review3.png',
     review:
-      'I can’t say enough good things about Adrian. He was able to take our complex project requirements and turn them into a seamless, functional website. His problem-solving abilities are outstanding.',
+      'We approached CrumBlab for SEO onsite optimization and schema markup, and we couldn’t be happier. Their expertise significantly improved our website’s performance and search engine rankings. The team was efficient, knowledgeable, and always available for questions.',
   },
   {
     id: 4,
-    name: 'Ether Smith',
-    position: 'CEO of BrightStar Enterprises',
+    name: 'Daniel Clark',
+    position: 'CEO of MotionPlus Media',
     img: 'assets/review4.png',
     review:
-      'Adrian was a pleasure to work with. He understood our requirements perfectly and delivered a website that exceeded our expectations. His skills in both frontend backend dev are top-notch.',
+      'CrumBlab’s video editing and marketing video services exceeded our expectations. They took our raw footage and turned it into a polished, professional product that really captured the essence of our brand. Their creative approach and attention to detail made a huge impact.',
   },
 ];
+
 
 export const myProjects = [
   {

@@ -21,16 +21,16 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed top-10 left-0 right-0 z-50 bg-transparent backdrop-blur-xs">
-      <div className="max-w-3xl mx-auto  bg-blue_gradient rounded-full   bg-opacity-50 backdrop-blur-md">
-        <div className="flex justify-between items-center py-5 mx-auto c-space">
-          <a href="/" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
-            <img src="/assets/logo_small.png" className="w-8 h-8 object-contain" alt="logo" />
+    <header className="fixed top-10 left-0 right-0 z-50  backdrop-blur-xs">
+      <div className="max-w-3xl mx-auto  bg-[#ffffff1a] rounded-3xl   bg-opacity-50 backdrop-blur-md">
+        <div className="flex justify-between items-center py-3 mx-auto c-space">
+          <a href="/" className="text-white font-bold text-xl hover:text-white transition-colors">
+            <img src="/assets/logo2.webp" className=" h-5 object-contain" alt="logo" />
           </a>
 
           <button
             onClick={toggleMenu}
-            className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex"
+            className="text-white hover:text-white focus:outline-none sm:hidden flex"
             aria-label="Toggle menu">
             <img src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} alt="toggle" className="w-6 h-6" />
           </button>
