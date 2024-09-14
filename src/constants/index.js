@@ -24,45 +24,61 @@ export const clientReviews = [
   {
     id: 1,
     name: 'Sarah Thompson',
-    position: 'Creative Director at PixelWave Studio',
+    position: 'Creative Director, PixelWave Studio',
     img: 'assets/review1.png',
     review:
-      'Collaborating with CrumBlab for our logo design and brand guidelines was an absolute pleasure. They captured our vision perfectly, delivering designs that were not only creative but also aligned with our brand identity. The professionalism and attention to detail were exceptional!',
+      'Working with CrumBlab on our logo design and brand guidelines was a seamless experience. They not only understood our vision but elevated it, delivering stunning designs that reflect our brand perfectly. Their professionalism and eye for detail made the entire process a breeze!',
   },
   {
     id: 2,
     name: 'James Martinez',
-    position: 'Owner of SocialBoost Agency',
+    position: 'Owner, SocialBoost Agency',
     img: 'assets/review2.png',
     review:
-      'CrumBlab’s work on our social media banners and product post editing was top-notch. Their ability to understand our brand’s voice and translate it visually made a huge difference in our digital presence. Highly recommended for anyone looking to enhance their social media game!',
+      'CrumBlab completely transformed our social media presence! The banners and product posts they designed were spot-on with our branding. Their ability to blend creativity with our brand voice helped us stand out across all digital platforms. Absolutely recommend them!',
   },
   {
     id: 3,
     name: 'Linda Carter',
-    position: 'Founder of BrightFocus Marketing',
+    position: 'Founder, BrightFocus Marketing',
     img: 'assets/review3.png',
     review:
-      'We approached CrumBlab for SEO onsite optimization and schema markup, and we couldn’t be happier. Their expertise significantly improved our website’s performance and search engine rankings. The team was efficient, knowledgeable, and always available for questions.',
+      'CrumBlab’s SEO optimization and schema markup services were game changers for us. Our website’s performance and rankings saw significant improvements almost immediately. The team is incredibly skilled, responsive, and truly invested in helping us succeed.',
   },
   {
     id: 4,
     name: 'Daniel Clark',
-    position: 'CEO of MotionPlus Media',
+    position: 'CEO, MotionPlus Media',
     img: 'assets/review4.png',
     review:
-      'CrumBlab’s video editing and marketing video services exceeded our expectations. They took our raw footage and turned it into a polished, professional product that really captured the essence of our brand. Their creative approach and attention to detail made a huge impact.',
+      'The CrumBlab team took our video content to the next level. Their video editing and marketing video services were phenomenal, turning our footage into a polished final product that resonated with our audience. Their attention to detail and creative vision were unmatched!',
+  },
+  {
+    id: 5,
+    name: 'McQueens Bargain',
+    position: 'Company',
+    img: 'assets/review5.jpg',
+    review:
+      'CrumBlab’s video editing expertise transformed our raw footage into something truly professional. Their marketing videos effectively captured our brand’s message and helped us connect better with our customers. Their creativity and dedication really shone through!',
+  },
+  {
+    id: 6,
+    name: 'ListLeap',
+    position: 'Company',
+    img: 'assets/review6.jpg',
+    review:
+      'We trusted CrumBlab with our video editing and marketing needs, and they delivered beyond expectations. The final videos were polished, engaging, and perfectly aligned with our brand’s goals. Their innovative approach made a huge impact on our marketing efforts!',
   },
 ];
 
 
 export const myProjects = [
   {
-    title: 'Podcastr - AI Podcast Platform',
-    desc: 'Podcastr is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.',
+    title: 'Podcastr - AI-Powered Podcast Creation',
+    desc: 'Podcastr is an innovative SaaS platform redefining podcast production with AI-driven features. It enables creators to effortlessly generate diverse voiceovers from a single text input using multi-voice technology.',
     subdesc:
-      'Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.',
-    href: 'https://www.youtube.com/watch?v=zfAb95tJvZQ',
+      'Powered by Next.js 14, Tailwind CSS, TypeScript, Framer Motion, and Convex, Podcastr delivers top-tier performance, offering a scalable solution for podcast enthusiasts and professionals.',
+    href: 'https://www.youtube.com/@WebMindsYT/',
     texture: '/textures/project/project1.mp4',
     logo: '/assets/project-logo1.png',
     logoStyle: {
@@ -72,34 +88,18 @@ export const myProjects = [
     },
     spotlight: '/assets/spotlight1.png',
     tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
-      },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
+      { id: 1, name: 'React.js', path: '/assets/react.svg' },
+      { id: 2, name: 'TailwindCSS', path: 'assets/tailwindcss.png' },
+      { id: 3, name: 'TypeScript', path: '/assets/typescript.png' },
+      { id: 4, name: 'Framer Motion', path: '/assets/framer.png' },
     ],
   },
   {
-    title: 'LiveDoc - Real-Time Google Docs Clone',
-    desc: 'LiveDoc is a powerful collaborative app that elevates the capabilities of real-time document editing. As an enhanced version of Google Docs, It supports millions of collaborators simultaneously, ensuring that every change is captured instantly and accurately.',
+    title: 'LiveDoc - Real-Time Collaborative Docs',
+    desc: 'LiveDoc revolutionizes real-time document editing by supporting millions of simultaneous collaborators. It takes collaboration beyond Google Docs with a seamless experience that captures every edit in real time.',
     subdesc:
-      'With LiveDoc, users can experience the future of collaboration, where multiple contributors work together in real time without any lag, by using Next.js and Liveblocks newest features.',
-    href: 'https://www.youtube.com/watch?v=y5vE8y_f_OM',
+      'Built using Next.js and the latest Liveblocks features, LiveDoc ensures a flawless, lag-free collaboration environment for teams of any size.',
+    href: 'https://www.youtube.com/@WebMindsYT/',
     texture: '/textures/project/project2.mp4',
     logo: '/assets/project-logo2.png',
     logoStyle: {
@@ -109,34 +109,18 @@ export const myProjects = [
     },
     spotlight: '/assets/spotlight2.png',
     tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
-      },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
+      { id: 1, name: 'React.js', path: '/assets/react.svg' },
+      { id: 2, name: 'TailwindCSS', path: 'assets/tailwindcss.png' },
+      { id: 3, name: 'TypeScript', path: '/assets/typescript.png' },
+      { id: 4, name: 'Framer Motion', path: '/assets/framer.png' },
     ],
   },
   {
-    title: 'CarePulse - Health Management System',
-    desc: 'An innovative healthcare platform designed to streamline essential medical processes. It simplifies patient registration, appointment scheduling, and medical record management, providing a seamless experience for both healthcare providers and patients.',
+    title: 'CarePulse - Advanced Healthcare Platform',
+    desc: 'CarePulse is a cutting-edge health management system designed to streamline patient care. It enhances the user experience by simplifying patient registration, appointment booking, and medical record management.',
     subdesc:
-      'With a focus on efficiency, CarePulse integrantes complex forms and SMS notifications, by using Next.js, Appwrite, Twillio and Sentry that enhance operational workflows.',
-    href: 'https://www.youtube.com/watch?v=lEflo_sc82g',
+      'Leveraging technologies like Next.js, Appwrite, Twilio, and Sentry, CarePulse improves operational workflows with automated forms and SMS notifications.',
+    href: 'https://www.youtube.com/@WebMindsYT/',
     texture: '/textures/project/project3.mp4',
     logo: '/assets/project-logo3.png',
     logoStyle: {
@@ -148,34 +132,18 @@ export const myProjects = [
     },
     spotlight: '/assets/spotlight3.png',
     tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
-      },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
+      { id: 1, name: 'React.js', path: '/assets/react.svg' },
+      { id: 2, name: 'TailwindCSS', path: 'assets/tailwindcss.png' },
+      { id: 3, name: 'TypeScript', path: '/assets/typescript.png' },
+      { id: 4, name: 'Framer Motion', path: '/assets/framer.png' },
     ],
   },
   {
-    title: 'Horizon - Online Banking Platform',
-    desc: 'Horizon is a comprehensive online banking platform that offers users a centralized finance management dashboard. It allows users to connect multiple bank accounts, monitor real-time transactions, and seamlessly transfer money to other users.',
+    title: 'Horizon - All-In-One Online Banking',
+    desc: 'Horizon is a comprehensive online banking platform offering users complete control over their financial ecosystem. With Horizon, users can connect multiple accounts, monitor transactions, and transfer money seamlessly.',
     subdesc:
-      'Built with Next.js 14 Appwrite, Dwolla and Plaid, Horizon ensures a smooth and secure banking experience, tailored to meet the needs of modern consumers.',
-    href: 'https://www.youtube.com/watch?v=PuOVqP_cjkE',
+      'Powered by Next.js 14, Appwrite, Dwolla, and Plaid, Horizon ensures a secure, intuitive, and modern banking experience tailored for today’s digital-savvy users.',
+    href: 'https://www.youtube.com/@WebMindsYT/',
     texture: '/textures/project/project4.mp4',
     logo: '/assets/project-logo4.png',
     logoStyle: {
@@ -185,34 +153,18 @@ export const myProjects = [
     },
     spotlight: '/assets/spotlight4.png',
     tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
-      },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
+      { id: 1, name: 'React.js', path: '/assets/react.svg' },
+      { id: 2, name: 'TailwindCSS', path: 'assets/tailwindcss.png' },
+      { id: 3, name: 'TypeScript', path: '/assets/typescript.png' },
+      { id: 4, name: 'Framer Motion', path: '/assets/framer.png' },
     ],
   },
   {
-    title: 'Imaginify - AI Photo Manipulation App',
-    desc: 'Imaginify is a groundbreaking Software-as-a-Service application that empowers users to create stunning photo manipulations using AI technology. With features like AI-driven image editing, a payments system, and a credits-based model.',
+    title: 'Imaginify - AI-Driven Photo Manipulation',
+    desc: 'Imaginify is an advanced SaaS platform enabling users to create stunning photo manipulations with AI technology. It features an AI-powered image editor, a credit-based payment model, and built-in e-commerce integration.',
     subdesc:
-      'Built with Next.js 14, Cloudinary AI, Clerk, and Stripe, Imaginify combines cutting-edge technology with a user-centric approach. It can be turned into a side income or even a full-fledged business.',
-    href: 'https://www.youtube.com/watch?v=Ahwoks_dawU',
+      'Built using Next.js 14, Cloudinary AI, Clerk, and Stripe, Imaginify allows users to easily generate high-quality images and turn their creative ideas into a profitable business.',
+    href: 'https://www.youtube.com/@WebMindsYT/',
     texture: '/textures/project/project5.mp4',
     logo: '/assets/project-logo5.png',
     logoStyle: {
@@ -222,26 +174,10 @@ export const myProjects = [
     },
     spotlight: '/assets/spotlight5.png',
     tags: [
-      {
-        id: 1,
-        name: 'React.js',
-        path: '/assets/react.svg',
-      },
-      {
-        id: 2,
-        name: 'TailwindCSS',
-        path: 'assets/tailwindcss.png',
-      },
-      {
-        id: 3,
-        name: 'TypeScript',
-        path: '/assets/typescript.png',
-      },
-      {
-        id: 4,
-        name: 'Framer Motion',
-        path: '/assets/framer.png',
-      },
+      { id: 1, name: 'React.js', path: '/assets/react.svg' },
+      { id: 2, name: 'TailwindCSS', path: 'assets/tailwindcss.png' },
+      { id: 3, name: 'TypeScript', path: '/assets/typescript.png' },
+      { id: 4, name: 'Framer Motion', path: '/assets/framer.png' },
     ],
   },
 ];
@@ -257,32 +193,169 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
   };
 };
 
-export const workExperiences = [
+export const workExperience = [
   {
     id: 1,
-    name: 'Framer',
-    pos: 'Lead Web Developer',
-    duration: '2022 - Present',
-    title: "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
-    icon: '/assets/framer.svg',
-    animation: 'victory',
+    title: 'Full Stack Dev',
+    desc: 'Played a role in developing both the backend and frontend of a mobile platform with React Native and Node.js, boosting its interactivity.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/exp1.svg',
   },
   {
     id: 2,
-    name: 'Figma',
-    pos: 'Web Developer',
-    duration: '2020 - 2022',
-    title: "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
-    icon: '/assets/figma.svg',
-    animation: 'clapping',
+    title: 'Mobile App Dev - Upwork',
+    desc: 'developed and Improve  mobile apps for both iOS & Android platforms using React Native.',
+    className: 'md:col-span-2', // change to md:col-span-2
+    thumbnail: '/assets/exp2.svg',
   },
   {
     id: 3,
-    name: 'Notion',
-    pos: 'Junior Web Developer',
-    duration: '2019 - 2020',
-    title: "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
-    icon: '/assets/notion.svg',
-    animation: 'salute',
+    title: 'Freelance App Dev Project',
+    desc: 'Led the dev of a mobile app for a client, from initial concept to deployment on app stores.',
+    className: 'md:col-span-2', // change to md:col-span-2
+    thumbnail: '/assets/exp3.svg',
+  },
+  {
+    id: 4,
+    title: 'Lead Frontend Developer',
+    desc: 'Developed and maintained user-facing features using modern frontend technologies.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/exp4.svg',
+  },
+];
+
+export const servicesOffered = [
+  {
+    id: 1,
+    title: 'Creative Logo Design',
+    desc: "Craft unique and memorable logo designs tailored to represent your brand's identity with precision.",
+    className: 'md:col-span-2',
+    thumbnail: '/assets/logo-design.png',
+  },
+  {
+    id: 2,
+    title: 'Animated Logo Creation',
+    desc: 'Bring your logo to life with stunning animations that enhance brand recognition and engagement.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/exp2.svg',
+  },
+  {
+    id: 3,
+    title: 'Brand Guidelines Development',
+    desc: 'Establish a consistent brand identity with a comprehensive set of guidelines for logos, fonts, colors, and more.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/brand.png',
+  },
+  {
+    id: 4,
+    title: 'Business Card Design',
+    desc: 'Create professional business cards that leave a lasting impression and effectively represent your brand.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/business-card-design.png',
+  },
+  {
+    id: 5,
+    title: 'Digital Presence Strategy',
+    desc: 'Build and optimize your online presence to reach a wider audience through digital channels.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/exp3.svg',
+  },
+  {
+    id: 6,
+    title: 'Social Media Banner Design',
+    desc: "Design visually appealing banners that boost your brand's presence across various social media platforms.",
+    className: 'md:col-span-2',
+    thumbnail: '/assets/social-media.png',
+  },
+  {
+    id: 7,
+    title: 'Product Post Editing',
+    desc: 'Edit and enhance product posts to make them more engaging and visually appealing.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/video-marketing.png',
+  },
+  {
+    id: 8,
+    title: 'Backlink Creation',
+    desc: 'Improve your website’s SEO with high-quality backlinks that increase its authority and search ranking.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/backlink-checker.png',
+  },
+  {
+    id: 9,
+    title: 'Social Media Post Captions',
+    desc: 'Craft compelling and on-brand captions that resonate with your target audience and boost engagement.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/cc.png',
+  },
+  {
+    id: 10,
+    title: 'Social Media Post Editing',
+    desc: 'Enhance your social media posts with professional editing to increase reach and interaction.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/social-media-1.png',
+  },
+  {
+    id: 11,
+    title: 'Custom Social Media Templates',
+    desc: 'Design eye-catching templates for your social media channels, ensuring brand consistency.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/social-media.png',
+  },
+  {
+    id: 12,
+    title: 'Email Copywriting',
+    desc: 'Write persuasive and engaging email content that drives conversions and improves click-through rates.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/email.png',
+  },
+  {
+    id: 13,
+    title: 'Email Template Design',
+    desc: 'Design clean and responsive email templates that effectively deliver your message across devices.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/email.png',
+  },
+  {
+    id: 14,
+    title: 'Website Design & Development',
+    desc: 'Create or redesign a stunning and functional website that aligns with your brand and business goals.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/app-development.png',
+  },
+  {
+    id: 15,
+    title: 'Onsite SEO Optimization',
+    desc: 'Boost your website’s visibility by optimizing content, structure, and keywords for search engines.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/seo.png',
+  },
+  {
+    id: 16,
+    title: 'Page Speed Optimization',
+    desc: 'Improve website loading times to enhance user experience and search engine ranking.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/speed-radar.png',
+  },
+  {
+    id: 17,
+    title: 'Schema Markup Implementation',
+    desc: 'Integrate structured data into your website to boost its search visibility and provide rich snippets.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/diagram.png',
+  },
+  {
+    id: 18,
+    title: 'Professional Video Editing',
+    desc: 'Create polished and engaging videos that captivate your audience and communicate your message effectively.',
+    className: 'md:col-span-2',
+    thumbnail: '/assets/film-editing.png',
+  },
+  {
+    id: 19,
+    title: 'Marketing Video Production',
+    desc: "Develop high-quality marketing videos that tell your brand's story and promote your products or services.",
+    className: 'md:col-span-2',
+    thumbnail: '/assets/advertise.png',
   },
 ];

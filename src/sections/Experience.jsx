@@ -1,65 +1,52 @@
-import { Suspense, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import React from "react";
 
-import Developer from '../components/Developer.jsx';
-import CanvasLoader from '../components/Loading.jsx';
-import { workExperiences } from '../constants/index.js';
+import { servicesOffered } from "../constants";
+import { Button } from '../components/ui/MovingBorders'; 
 
-const WorkExperience = () => {
-  const [animationName, setAnimationName] = useState('idle');
-
+const Experience = () => {
   return (
-    <section className="c-space my-20" id="work">
-      <div className="w-full text-white-600">
-        <p className="head-text">My Work Experience</p>
+    <section className="c-space my-20">
+      <h3 className="head-text">Our Services</h3>
 
-        <div className="work-container">
-          <div className="work-canvas">
-            <Canvas>
-              <ambientLight intensity={7} />
-              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-              <directionalLight position={[10, 10, 10]} intensity={1} />
-              <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
-
-              <Suspense fallback={<CanvasLoader />}>
-                <Developer position-y={-3} scale={3} animationName={animationName} />
-              </Suspense>
-            </Canvas>
-          </div>
-
-          <div className="work-content">
-            <div className="sm:py-10 py-5 sm:px-5 px-2.5">
-              {workExperiences.map((item, index) => (
-                <div
-                  key={index}
-                  onClick={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOver={() => setAnimationName(item.animation.toLowerCase())}
-                  onPointerOut={() => setAnimationName('idle')}
-                  className="work-content_container group">
-                  <div className="flex flex-col h-full justify-start items-center py-2">
-                    <div className="work-content_logo">
-                      <img className="w-full h-full" src={item.icon} alt="" />
-                    </div>
-
-                    <div className="work-content_bar" />
-                  </div>
-
-                  <div className="sm:p-5 px-2.5 py-5">
-                    <p className="font-bold text-white-800">{item.name}</p>
-                    <p className="text-sm mb-5">
-                      {item.pos} -- <span>{item.duration}</span>
-                    </p>
-                    <p className="group-hover:text-white transition-all ease-in-out duration-500">{item.title}</p>
-                  </div>
-                </div>
-              ))}
+      <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
+        {servicesOffered.map((card) => (
+          <Button
+            key={card.id}
+            //   random duration will be fun , I think , may be not
+            duration={Math.floor(Math.random() * 10000) + 10000}
+            borderRadius="1.75rem"
+            style={{
+              //   add these two
+              //   you can generate the color from here https://cssgradient.io/
+              // background: "rgb(4,7,29)",
+              // backgroundColor:
+              //   "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+              // add this border radius to make it more rounded so that the moving border is more realistic
+              borderRadius: `calc(1.75rem* 0.96)`,
+            }}
+            // remove bg-white dark:bg-slate-900
+            className="flex-1 dark:bg-[rgb(4,7,29)] bg-purl text-black dark:text-white border-neutral-200 dark:border-slate-800"
+          >
+            <div className="flex lg:flex-row flex-col lg:items-center p-3 py-6 md:p-5 lg:p-10 gap-2">
+              <img
+                src={card.thumbnail}
+                alt={card.thumbnail}
+                className="lg:w-32 md:w-20 w-16"
+              />
+              <div className="lg:ms-5">
+                <h1 className="text-start text-white text-xl md:text-2xl font-bold">
+                  {card.title}
+                </h1>
+                <p className="text-start text-white/70 mt-3 font-semibold">
+                  {card.desc}
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
+          </Button>
+        ))}
       </div>
     </section>
   );
 };
 
-export default WorkExperience;
+export default Experience;
