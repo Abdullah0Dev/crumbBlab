@@ -45,7 +45,7 @@ export default App;
 /**
 Assalamu Alaikum, Brother! 🌙
 
-As you know, I'm putting in a lot of effort into this project to ensure it's of the highest quality, Alhamdulillah. The price we discussed is quite low considering the amount of time and work involved. For a project priced at $125, I would typically complete it in 1-2 days, but this one is much more demanding. I hope you understand my situation, and it would mean a lot if you could consider offering a more appropriate price, Insha'Allah.
+As you know, I'm putting in a lot of effort into this project to ensure it's of the highest quality and I did what you request with fixing the bad things that client mentioned and I did the Service section with professional look, Alhamdulillah. The price we discussed is quite low considering the amount of time and work involved. For a project priced at $125, I would typically complete it in 1-2 days, but this one is much more demanding. I hope you understand my situation, and it would mean a lot if you could consider offering a more appropriate price, Insha'Allah.
 
 I'm working hard to deliver the best results for you, with smooth animations and 3D elements included, Insha'Allah.
 
