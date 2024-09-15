@@ -53,10 +53,10 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="min-h-screen w-full py-5 max-xl:flex-col max-xl:pb-80 items-center flex  relative" id="home">
+    <section className="min-h-screen w-full py-5 mb-9 max-xl:flex-col max-xl:pb-80 items-center flex  relative" id="home">
       <img src="/assets/spotlight2.png" alt="spotlight" className="absolute top-0 right-0 z-0" />
 
-      <div className=" w-3/5 mx-auto flex  max-xl:w-full  z-10 flex-col sm:mt-36 mt-20 c-space gap-x-3">
+      <div className=" w-3/5 mx-auto flex  max-xl:w-full ml-4 z-10 flex-col sm:mt-36 mt-20 c-space gap-x-3">
         <p className="hero_tag text-gray_gradient">
           Transform<span className="text-purple-300 xl:text-7xl">. </span> Grow
           <span className="text-purple-300 xl:text-7xl">. </span> Dominate
@@ -74,19 +74,27 @@ const Hero = () => {
       </div>
       <div className="w-2/3 relative max-xl:py-40" />
       <div className="absolute -z-0 max-xl:mb-20 max-xl:left-auto left-96 w-full h-full">
-        {/* w-2/3 relative */}
-        {/* <img src="/assets/hero-img.png" alt="website-builder" className="object-contain" /> */}
         <Leva hidden />
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
             <Can scale={[1, 1, 1]} rotation={[0, 0, 0]} position={[0, 0, 19]} cursor={cursor} />
-            <pointLight position={[0, 0, 30]} intensity={1} color="#d8b4fe" />
 
-            <ambientLight intensity={1} />
-            <directionalLight position={[10, 10, 10]} intensity={0.5} color={'#303'} />
+            {/* Adjusted Lighting */}
+            <ambientLight intensity={0.5} color="#ffffff" />
+            <pointLight position={[0, 10, 20]} intensity={1} color="#ffffff" />
+            <pointLight position={[0, 10, -20]} intensity={1} color="#ffffff" />
+
+            {/* Add soft light to highlight the top and bottom */}
+            <spotLight position={[0, 20, 0]} intensity={1.5} angle={0.5} penumbra={0.2} castShadow color="#ffffff" />
+            <spotLight position={[0, -20, 0]} intensity={2.5} angle={0.5} penumbra={0.2} castShadow color="#ffffff" />
+            <spotLight position={[0, -20, 0]} intensity={1.5} color="#ffffff" />
+            <directionalLight position={[0, -20, 0]} intensity={0.7} color="#ffffff" />
+            {/* Optional - additional fill lights for better overall lighting */}
+            <directionalLight position={[5, 5, 5]} intensity={0.7} color="#ffffff" />
+            <directionalLight position={[-5, -5, 5]} intensity={0.7} color="#ffffff" />
           </Suspense>
-        </Canvas>
+        </Canvas>  
       </div>
     </section>
   );

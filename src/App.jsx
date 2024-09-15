@@ -10,12 +10,12 @@ import React from 'react';
 import Overview from './sections/Overview.jsx';
 const App = () => {
   return (
-    <main className=" overflow-x-clip px- sm:px-4 relative">
+    <main className=" overflow-x-clip px- sm:px-  relative">
       <Navbar />
-      <Hero />
-      <Overview />
+      <Hero /> 
+        <Overview /> 
       <Clients />
-      {/* <WorkExperience /> */}
+      <WorkExperience />
       {/* <Projects /> */}
       {/* <Contact />  */}
       {/* <About /> */}
@@ -41,3 +41,13 @@ const App = () => {
 };
 
 export default App;
+
+/**
+Assalamu Alaikum, Brother! 🌙
+
+As you know, I'm putting in a lot of effort into this project to ensure it's of the highest quality, Alhamdulillah. The price we discussed is quite low considering the amount of time and work involved. For a project priced at $125, I would typically complete it in 1-2 days, but this one is much more demanding. I hope you understand my situation, and it would mean a lot if you could consider offering a more appropriate price, Insha'Allah.
+
+I'm working hard to deliver the best results for you, with smooth animations and 3D elements included, Insha'Allah.
+
+JazakAllah Khair for your understanding! 
+ */

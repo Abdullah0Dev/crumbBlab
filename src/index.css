@@ -205,3 +205,14 @@ body {
     transform: rotate(0deg);
   }
 }
+
+/* For all browsers */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* For IE, Edge, and Firefox */
+body {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
