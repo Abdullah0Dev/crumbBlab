@@ -8,6 +8,7 @@ import Projects from './sections/Projects.jsx';
 import WorkExperience from './sections/Experience.jsx';
 import React from 'react';
 import Overview from './sections/Overview.jsx';
+import ButtonGradient from './components/svg/ButtonGradient.jsx';
 const App = () => {
   return (
     <main className=" overflow-x-clip px- sm:px-  relative">
@@ -17,7 +18,7 @@ const App = () => {
       <WorkExperience />
       <Clients />
       {/* <Projects /> */}
-      {/* <Contact />  */}
+      <Contact />  
       {/* <About /> */}
       {/* <div className="h-screen"></div> */}
       {/* <Projects /> */}

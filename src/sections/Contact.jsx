@@ -3,13 +3,15 @@ import { useRef, useState } from 'react';
 
 import useAlert from '../hooks/useAlert.js';
 import Alert from '../components/Alert.jsx';
+import CustomButton from '../components/CustomButton.jsx';
+import { a, select } from 'framer-motion/client';
 
 const Contact = () => {
   const formRef = useRef();
 
   const { alert, showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false);
-
+  const [selected, setSelected] = useState('-$1k');
   const [form, setForm] = useState({ name: '', email: '', message: '' });
 
   const handleChange = ({ target: { name, value } }) => {
@@ -22,23 +24,23 @@ const Contact = () => {
 
     emailjs
       .send(
-        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        'service_bdutsco',
+        'template_uzait1p',
         {
           from_name: form.name,
-          to_name: 'JavaScript Mastery',
+          to_name: 'Abdullah Dev',
           from_email: form.email,
-          to_email: 'sujata@jsmastery.pro',
+          to_email: 'webminds.yt@gmail.com',
           message: form.message,
         },
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
+        'HQoPFuxeKNMAX8H3i',
       )
       .then(
         () => {
           setLoading(false);
           showAlert({
             show: true,
-            text: 'Thank you for your message 😃',
+            text: 'Thank you, We are going to check it 😃',
             type: 'success',
           });
 
@@ -67,20 +69,23 @@ const Contact = () => {
   return (
     <section className="c-space my-20" id="contact">
       {alert.show && <Alert {...alert} />}
-
-      <div className="relative min-h-screen flex items-center justify-center flex-col">
-        <img src="/assets/terminal.png" alt="terminal-bg" className="absolute inset-0 min-h-screen" />
-
+      <div className="hidden relative justify-center mb-[6.5rem] lg:flex">
+        <img src={'/assets/4-small.png'} className="relative z-1" width={255} height={255} alt="Sphere" /> 
+        <div className="absolute top-1/2 left-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <img src={'/assets/stars.svg'} className="w-full" width={950} height={400} alt="Stars" />
+        </div>
+      </div>
+      <div className="relative min-h-screen bg-opacity-15 rounded-3xl border border-zinc-600 bg-cover flex bg-[url(/assets/gradient.png)] items-center justify-center flex-col">
         <div className="contact-container">
-          <h3 className="head-text">Let's talk</h3>
+          <h3 className="head-text">Hey! Lets chat about your project</h3>
           <p className="text-lg text-white-600 mt-3">
             Whether you’re looking to build a new website, improve your existing platform, or bring a unique project to
-            life, I’m here to help.
+            life, We're here to help.
           </p>
 
           <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
             <label className="space-y-3">
-              <span className="field-label">Full Name</span>
+              <span className="field-label">Whats your name?</span>
               <input
                 type="text"
                 name="name"
@@ -93,7 +98,7 @@ const Contact = () => {
             </label>
 
             <label className="space-y-3">
-              <span className="field-label">Email address</span>
+              <span className="field-label">Your email?</span>
               <input
                 type="email"
                 name="email"
@@ -106,7 +111,7 @@ const Contact = () => {
             </label>
 
             <label className="space-y-3">
-              <span className="field-label">Your message</span>
+              <span className="field-label">Tell us about your project </span>
               <textarea
                 name="message"
                 value={form.message}
@@ -114,15 +119,29 @@ const Contact = () => {
                 required
                 rows={5}
                 className="field-input"
-                placeholder="Share your thoughts or inquiries..."
+                placeholder="Share your Project Overview..."
               />
             </label>
-
-            <button className="field-btn" type="submit" disabled={loading}>
-              {loading ? 'Sending...' : 'Send Message'}
-
-              <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
-            </button>
+            <label className="space-y-3">
+              <span className="field-label">Project budget (AUD): </span>
+              <div className=" flex gap-x-8 flex-wrap gap-y-9">
+                {budgetData.map((item, index) => (
+                  <button type="button" id={index} onClick={() => setSelected(item.amount)}>
+                    <span
+                      className={`cursor-pointer bg-n-6 px-5 py-3 rounded-lg text-lg ${
+                        selected === item.amount ? ' text-n-1 border-n-4 border' : 'text-n-3  '
+                      }`}>
+                      {item.amount}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            </label>
+            <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
+              <CustomButton className="w-full mb-6  rounded-tr-[22px]" disabled={loading} white={false}>
+                {loading ? 'Submitting...' : 'Submit Project'}
+              </CustomButton>
+            </div>
           </form>
         </div>
       </div>
@@ -131,3 +150,21 @@ const Contact = () => {
 };
 
 export default Contact;
+
+const budgetData = [
+  {
+    amount: '-1$k',
+  },
+  {
+    amount: '1$k - $5k',
+  },
+  {
+    amount: '5$k - $10k',
+  },
+  {
+    amount: '10$k - $20k',
+  },
+  {
+    amount: '$20k +',
+  },
+];

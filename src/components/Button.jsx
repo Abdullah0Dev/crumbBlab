@@ -1,4 +1,4 @@
-const Button = ({ name, isBeam = false, containerClass }) => {
+const CustomButton = ({ name, isBeam = false, containerClass }) => {
   return (
     <button className={`btn cursor-pointer ${containerClass}`}>
       {isBeam && (
@@ -12,4 +12,4 @@ const Button = ({ name, isBeam = false, containerClass }) => {
   );
 };
 
-export default Button;
+export default CustomButton;
