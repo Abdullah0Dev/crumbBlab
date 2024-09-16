@@ -14,6 +14,7 @@ import HeroCamera from '../components/HeroCamera.jsx';
 import { calculateSizes } from '../constants/index.js';
 import { HackerRoom } from '../components/HackerRoom.jsx';
 import Can from '../components/Can.jsx';
+
 const Hero = () => {
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
 
@@ -23,11 +24,12 @@ const Hero = () => {
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
+
   const controls = useControls('Can', {
     position: {
-      value: [0, 0, 19], // default position
-      min: [-50, -50, -50], // min for each axis
-      max: [50, 50, 50], // max for each axis
+      value: isMobile ? [0, 0, 14] : [0, 0, 19], // smaller for mobile
+      min: [-50, -50, -50],
+      max: [50, 50, 50],
     },
     rotation: {
       value: [0, -Math.PI, 0],
@@ -53,14 +55,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="min-h-screen w-full py-5 mb-9 max-xl:flex-col max-xl:pb-80 items-center flex  relative" id="home">
+    <section
+      className="min-h-screen w-full py-5 mb-9 max-xl:flex-col max-xl:pb-80 items-center flex relative"
+      id="home">
       <img src="/assets/spotlight2.png" alt="spotlight" className="absolute top-0 right-0 z-0" />
-
-      <div className=" w-3/5 mx-auto flex  max-xl:w-full ml-4 z-10 flex-col sm:mt-36 mt-20 c-space gap-x-3">
+ 
+      <div className="w-3/5 mx-auto flex max-xl:w-full ml-4 max-sm:ml-0 z-10 flex-col sm:mt-36 mt-20 c-space gap-x-3">
         <p className="hero_tag text-gray_gradient">
-          Transform<span className="text-purple-300 xl:text-7xl">. </span> Grow
-          <span className="text-purple-300 xl:text-7xl">. </span> Dominate
-          <span className="text-purple-300 xl:text-7xl">. </span>
+          Transform<span className="text-red-500 xl:text-7xl">. </span> Grow
+          <span className="text-red-500 xl:text-7xl">. </span> Dominate
+          <span className="text-red-500 xl:text-7xl">. </span>
         </p>
         <p className="text-md font-medium text-purple-200 text-opacity-30 font-generalsans">
           From stunning logos to fully optimized websites, we craft digital experiences that drive success. Scroll down
@@ -72,35 +76,45 @@ const Hero = () => {
           </a>
         </div>
       </div>
+
       <div className="w-2/3 relative max-xl:py-40" />
-      <div className="absolute -z-0 max-xl:mb-20 max-xl:left-auto left-96 w-full h-full">
+
+      <div className="absolute -z-0 max-xl:mb-20  max-xl:left-auto left-96 w-full h-full">
         <Leva hidden />
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-            <Can scale={[1, 1, 1]} rotation={[0, 0, 0]} position={[0, 0, 19]} cursor={cursor} />
 
-            {/* Adjusted Lighting */}
+            <Can {...controls} cursor={cursor} />
+
+            {/* Orbit Controls */}
+            <OrbitControls
+              enableZoom={false}
+              maxPolarAngle={Math.PI / 2}
+              minPolarAngle={0}
+              maxAzimuthAngle={Math.PI / 6}
+              minAzimuthAngle={-Math.PI / 6}
+            />
+
+            {/* Lighting Setup */}
             <ambientLight intensity={0.5} color="#ffffff" />
             <pointLight position={[0, 10, 20]} intensity={1} color="#ffffff" />
             <pointLight position={[0, 10, -20]} intensity={1} color="#ffffff" />
 
-            {/* Add soft light to highlight the top and bottom */}
             <spotLight position={[0, 20, 0]} intensity={1.5} angle={0.5} penumbra={0.2} castShadow color="#ffffff" />
             <spotLight position={[0, -20, 0]} intensity={2.5} angle={0.5} penumbra={0.2} castShadow color="#ffffff" />
-            <spotLight position={[0, -20, 0]} intensity={1.5} color="#ffffff" />
             <directionalLight position={[0, -20, 0]} intensity={0.7} color="#ffffff" />
-            {/* Optional - additional fill lights for better overall lighting */}
             <directionalLight position={[5, 5, 5]} intensity={0.7} color="#ffffff" />
             <directionalLight position={[-5, -5, 5]} intensity={0.7} color="#ffffff" />
           </Suspense>
-        </Canvas>  
+        </Canvas>
       </div>
     </section>
   );
 };
 
 export default Hero;
+
 /**
   <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
         <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">
@@ -139,3 +153,5 @@ export default Hero;
         </a>
       </div>
  */
+
+      

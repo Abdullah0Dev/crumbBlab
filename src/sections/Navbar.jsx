@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-
 import { navLinks } from '../constants/index.js';
 
 const NavItems = ({ onClick = () => {} }) => (
@@ -17,9 +16,11 @@ const NavItems = ({ onClick = () => {} }) => (
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [logoSrc, setLogoSrc] = useState('/assets/logo2.webp'); // Default logo
+  const [fadeClass, setFadeClass] = useState('');
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
+
   useEffect(() => {
     const overviewSection = document.getElementById('overview-section');
 
@@ -27,18 +28,26 @@ const Navbar = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setLogoSrc('/assets/logo.webp'); // Change to the new logo
+            setFadeClass('fade-out'); // Start fade-out transition
+            setTimeout(() => {
+              setLogoSrc('/assets/logo.webp'); // Change to the new logo
+              setFadeClass(''); // Remove fade-out class
+            }, 500); // Match the duration of the CSS transition
           } else {
-            setLogoSrc('/assets/logo2.webp'); // Revert back to default logo
+            setFadeClass('fade-out'); // Start fade-out transition
+            setTimeout(() => {
+              setLogoSrc('/assets/logo2.webp'); // Revert back to default logo
+              setFadeClass(''); // Remove fade-out class
+            }, 500); // Match the duration of the CSS transition
           }
-        }); 
+        });
       },
       {
         threshold: 0.5, // Trigger when 50% of the section is visible
         rootMargin: '250px 0px -300px 0px', // Adjust the bottom margin to trigger later
       }
     );
-  
+
     if (overviewSection) observer.observe(overviewSection);
 
     return () => {
@@ -47,11 +56,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-10 left-0 right-0 z-50  backdrop-blur-xs">
-      <div className="max-w-3xl mx-auto  bg-[#ffffff1a] rounded-3xl   bg-opacity-50 backdrop-blur-md">
+    <header className="fixed top-10 left-0 right-0 z-50 backdrop-blur-xs">
+      <div className="max-w-3xl mx-auto bg-[#ffffff1a] rounded-3xl bg-opacity-50 backdrop-blur-md">
         <div className="flex justify-between items-center py-3 mx-auto c-space">
           <a href="/" className="text-white font-bold text-xl hover:text-white transition-colors">
-            <img src={logoSrc} className=" h-5 object-contain" alt="logo" />
+            <img src={logoSrc} className={`h-5 object-contain logo-transition ${fadeClass}`} alt="logo" />
           </a>
 
           <button

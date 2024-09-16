@@ -59,7 +59,7 @@ export const clientReviews = [
     position: 'Company',
     img: 'assets/review5.jpg',
     review:
-      'CrumBlab’s video editing expertise transformed our raw footage into something truly professional. Their marketing videos effectively captured our brand’s message and helped us connect better with our customers. Their creativity and dedication really shone through!',
+      'CrumBlab did an amazing job designing our new logo. They took our vision and turned it into a simple, yet impactful design that truly represents our brand. We couldn’t be happier with the final result!',
   },
   {
     id: 6,
@@ -67,7 +67,7 @@ export const clientReviews = [
     position: 'Company',
     img: 'assets/review6.jpg',
     review:
-      'We trusted CrumBlab with our video editing and marketing needs, and they delivered beyond expectations. The final videos were polished, engaging, and perfectly aligned with our brand’s goals. Their innovative approach made a huge impact on our marketing efforts!',
+      'CrumBlab nailed both our logo and website design! They created a fresh, modern look that perfectly aligns with our brand. Their attention to detail and creativity made all the difference, and we love how everything turned out.',
   },
 ];
 
