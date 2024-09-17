@@ -14,7 +14,7 @@ import HeroCamera from '../components/HeroCamera.jsx';
 import { calculateSizes } from '../constants/index.js';
 import { HackerRoom } from '../components/HackerRoom.jsx';
 import Can from '../components/Can.jsx';
-
+import Card from '../components/Card.jsx'
 const Hero = () => {
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
 
@@ -42,6 +42,26 @@ const Hero = () => {
       max: [5, 5, 5],
     },
   });
+  
+
+  const CardControls = useControls('Card', {
+    position: {
+      value: isMobile ? [0, 0, 14] : [0, 0, 19], // smaller for mobile
+      min: [-50, -50, -50],
+      max: [50, 50, 50],
+    },
+    rotation: {
+      value: [0, -8, 0],
+      min: [-Math.PI, -Math.PI, -Math.PI],
+      max: [Math.PI, Math.PI, Math.PI],
+    },
+    scale: {
+      value: [1, 1, 1],
+      min: [0.1, 0.1, 0.1],
+      max: [5, 5, 5],
+    },
+  });
+  
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -56,19 +76,19 @@ const Hero = () => {
 
   return (
     <section
-      className="min-h-screen w-full py-5 mb-9 max-xl:flex-col max-xl:pb-80 items-center flex relative"
+      className="min-h-screen w-full py-5 mb-5 max-xl:flex-col max-xl:pb-80 items-center flex relative"
       id="home">
       <img src="/assets/spotlight2.png" alt="spotlight" className="absolute top-0 right-0 z-0" />
  
       <div className="w-3/5 mx-auto flex max-xl:w-full ml-4 max-sm:ml-0 z-10 flex-col sm:mt-36 mt-20 c-space gap-x-3">
-        <p className="hero_tag text-gray_gradient">
-          Transform<span className="text-red-500 xl:text-7xl">. </span> Grow
+        <p className="hero_tag  text-red-500">
+          {/* Transform<span className="text-red-500 xl:text-7xl">. </span> Grow
           <span className="text-red-500 xl:text-7xl">. </span> Dominate
-          <span className="text-red-500 xl:text-7xl">. </span>
+          <span className="text-red-500 xl:text-7xl">. </span> */}
+          Together, we'll help you
         </p>
-        <p className="text-md font-medium text-purple-200 text-opacity-30 font-generalsans">
-          From stunning logos to fully optimized websites, we craft digital experiences that drive success. Scroll down
-          to see how we can elevate your business.
+        <p className="text-md font-medium text-purple-200 text-opacity-30 font-custom">
+        Transform, grow, dominate, thrive, scale, succeed, excel, advance, expand, innovate, elevate, create, craft
         </p>
         <div className="mt-5 max-xl:inline flex">
           <a href="#about" className="w-fit">
@@ -91,10 +111,40 @@ const Hero = () => {
             <OrbitControls
               enableZoom={false}
               maxPolarAngle={Math.PI / 2}
-              minPolarAngle={0}
-              maxAzimuthAngle={Math.PI / 6}
-              minAzimuthAngle={-Math.PI / 6}
+              minPolarAngle={Math.PI / 2}
+              maxAzimuthAngle={Math.PI / 16}
+              minAzimuthAngle={-Math.PI / 16}
             />
+
+            {/* Lighting Setup */}
+            <ambientLight intensity={0.5} color="#ffffff" />
+            <pointLight position={[0, 10, 20]} intensity={1} color="#ffffff" />
+            <pointLight position={[0, 10, -20]} intensity={1} color="#ffffff" />
+
+            <spotLight position={[0, 20, 0]} intensity={1.5} angle={0.5} penumbra={0.2} castShadow color="#ffffff" />
+            <spotLight position={[0, -20, 0]} intensity={2.5} angle={0.5} penumbra={0.2} castShadow color="#ffffff" />
+            <directionalLight position={[0, -20, 0]} intensity={0.7} color="#ffffff" />
+            <directionalLight position={[5, 5, 5]} intensity={0.7} color="#ffffff" />
+            <directionalLight position={[-5, -5, 5]} intensity={0.7} color="#ffffff" />
+          </Suspense>
+        </Canvas>
+      </div>
+      <div className="absolute -z-10 max-xl:mb-20  max-xl:hidden left-60 w-full h-full">
+        <Leva hidden />
+        <Canvas className="w-full h-full">
+          <Suspense fallback={<CanvasLoader />}>
+            <PerspectiveCamera makeDefault position={[0, 0, 30]} />
+{/* -8.00 */}
+            <Card {...CardControls}  />
+
+            {/* Orbit Controls */}
+            {/* <OrbitControls
+              enableZoom={false}
+              maxPolarAngle={Math.PI / 2}
+              minPolarAngle={Math.PI / 2}
+              maxAzimuthAngle={Math.PI / 16}
+              minAzimuthAngle={-Math.PI / 16}
+            /> */}
 
             {/* Lighting Setup */}
             <ambientLight intensity={0.5} color="#ffffff" />

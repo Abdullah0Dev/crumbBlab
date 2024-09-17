@@ -72,6 +72,7 @@ export default {
         code: 'var(--font-code)',
         grotesk: 'var(--font-grotesk)',
         generalsans: ['General Sans', 'sans-serif'],
+        custom: ['Courgette', 'General Sans'],
       },
       letterSpacing: {
         tagline: '.15em',

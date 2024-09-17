@@ -123,7 +123,7 @@ const Contact = () => {
               />
             </label>
             <label className="space-y-3">
-              <span className="field-label">Project budget (AUD): </span>
+              <span className="field-label">Project budget (USD): </span>
               <div className=" flex gap-x-8 flex-wrap gap-y-9">
                 {budgetData.map((item, index) => (
                   <button type="button" id={index} onClick={() => setSelected(item.amount)}>
