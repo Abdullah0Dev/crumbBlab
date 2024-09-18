@@ -1,21 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import ServiceItem from '../components/ServiceItem';
+import AccordionItem from '../components/AccordionItem';
 
 const Experience = () => {
   const [activeService, setActiveService] = useState('IOTC');
   const [manualOverride, setManualOverride] = useState(false);
-  const [isAccordion, setIsAccordion] = useState(window.innerWidth < 425);
+  const [isAccordion, setIsAccordion] = useState(false);
   const serviceRefs = useRef([]);
-
-  useEffect(() => {
-    // Update accordion state based on window width
-    const handleResize = () => {
-      setIsAccordion(window.innerWidth < 425);
-    };
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   useEffect(() => {
     const observerOptions = {
@@ -58,11 +49,15 @@ const Experience = () => {
       }, 1000);
     }
   };
+
   useEffect(() => {
     const handleResize = () => {
-      console.log('Current width:', window.innerWidth);
       if (window.innerWidth <= 833) {
-        console.log('Width is 430px or less');
+        console.log(window.innerWidth);
+        
+        setIsAccordion(true);
+      } else {
+        setIsAccordion(false);
       }
     };
 
@@ -71,39 +66,40 @@ const Experience = () => {
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  
 
   return (
     <section className="c-space my-20">
       <h3 className="head-text">Our Services</h3>
-      <div className="container grid pt-16 grid-cols-2">
-        {/* Left side, accordion or normal view */}
-        <div className={`w-full ${isAccordion ? 'accordion-section' : 'w-1/3'}`}>
+      <div className={`  ${isAccordion ? 'w-full mt-12' : ' grid pt-16 grid-cols-2'} `}>
+        {/* Left side */}
+        <div className={`w-full ${isAccordion ? ' ' : 'w-1/3'}`}>
           <div className={`flex flex-col gap-y-5 ${isAccordion ? '' : 'sticky top-1/3'}`}>
-            <h3 className="text-white text-sm">
-              Development Of
-              <span className="text-yellow-500">
-                <br /> B¹ Eye
-              </span>
-            </h3>
-            <div className={`flex flex-col gap-y-7 ${isAccordion ? '' : 'flex-col'}`}>
+            {!isAccordion && (
+              <h3 className="text-white text-sm">
+                Development Of
+                <span className="text-yellow-500">
+                  <br /> B¹ Eye
+                </span>
+              </h3>
+            )}
+            <div className={`flex flex-col gap-y-7 ${isAccordion ? 'w-full' : 'flex-col'}`}>
               {devData.map((item, index) => (
                 <div key={index}>
                   {isAccordion ? (
-                    <div>
-                      <button
-                        className={`flex gap-x-2 items-center ${activeService === item.text ? 'text-yellow-500' : 'text-white/50'} accordion-button`}
-                        onClick={() => handleDevClick(item.text)}>
-                        <div
-                          className={`flex items-center justify-center p-[5px] rounded-full ${activeService === item.text ? 'bg-yellow-500' : 'bg-black-500'}`}>
-                          <img src={item.icon} alt={item.text} />
-                        </div>
-                        <h2 className="text-sm">{item.text}</h2>
-                      </button>
-                      <div className={`accordion-content ${activeService === item.text ? 'active' : ''}`}>
-                        {/* Display service items or details here if needed */}
-                      </div>
-                    </div>
+                    <AccordionItem
+                      title={item.serviceCategory}
+                      icon={item.icon}
+                      content={
+                        <ServiceItem
+                          data={serviceData[index].data}
+                          serviceCategory={serviceData[index].serviceCategory}
+                          serviceSection={serviceData[index].serviceSection}
+                          yellowCircle={serviceData[index].yellowCircle}
+                          isActive={activeService === serviceData[index].yellowCircle}
+                          isAccordion={isAccordion}
+                        />
+                      }
+                    />
                   ) : (
                     <button
                       className={`flex gap-x-2 items-center ${activeService === item.text ? 'text-yellow-500' : 'text-white/50'}`}
@@ -121,22 +117,25 @@ const Experience = () => {
           </div>
         </div>
 
-        {/* Right side, 2/3 width or accordion view */}
-        <div className={`w-full ${isAccordion ? 'accordion-section' : 'w-2/3'}`}>
-          <div className="space-y-12">
-            {serviceData.map((item, index) => (
-              <div key={index} data-category={item.yellowCircle} ref={(el) => (serviceRefs.current[index] = el)}>
-                <ServiceItem
-                  data={item.data}
-                  serviceCategory={item.serviceCategory}
-                  serviceSection={item.serviceSection}
-                  yellowCircle={item.yellowCircle}
-                  isActive={activeService === item.yellowCircle}
-                />
-              </div>
-            ))}
+        {/* Right side */}
+        {!isAccordion && (
+          <div className="w-2/3 ">
+            <div className="space-y-12">
+              {serviceData.map((item, index) => (
+                <div key={index} data-category={item.yellowCircle} ref={(el) => (serviceRefs.current[index] = el)}>
+                  <ServiceItem
+                    data={item.data}
+                    serviceCategory={item.serviceCategory}
+                    serviceSection={item.serviceSection}
+                    yellowCircle={item.yellowCircle}
+                    isActive={activeService === item.yellowCircle}
+                    isAccordion={isAccordion}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
@@ -148,18 +147,22 @@ const devData = [
   {
     icon: 'https://a.storyblok.com/f/274239/16x16/d228b12923/iotc.svg',
     text: 'IOTC',
+    serviceCategory: 'IoT Connectivity',
   },
   {
     icon: 'https://a.storyblok.com/f/274239/16x16/d1c1ab6802/apa.svg',
     text: 'APA',
+    serviceCategory: 'Autonomous AI-powered Personal Agent',
   },
   {
     icon: 'https://a.storyblok.com/f/274239/16x16/18440b1b86/hf.svg',
     text: 'HF',
+    serviceCategory: 'Health Functions',
   },
   {
     icon: 'https://a.storyblok.com/f/274239/17x17/1839770985/mrc.svg',
     text: 'MRC',
+    serviceCategory: 'Mixed Reality Capabilities',
   },
 ];
 
