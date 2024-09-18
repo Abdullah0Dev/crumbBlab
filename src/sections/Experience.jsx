@@ -1,42 +1,262 @@
-import React from 'react';
-import { servicesOffered } from '../constants';
-import { Button } from '../components/ui/MovingBorders';
+import React, { useState, useEffect, useRef } from 'react';
+import ServiceItem from '../components/ServiceItem';
 
 const Experience = () => {
+  const [activeService, setActiveService] = useState('IOTC');
+  const [manualOverride, setManualOverride] = useState(false);
+  const [isAccordion, setIsAccordion] = useState(window.innerWidth < 425);
+  const serviceRefs = useRef([]);
+
+  useEffect(() => {
+    // Update accordion state based on window width
+    const handleResize = () => {
+      setIsAccordion(window.innerWidth < 425);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const observerOptions = {
+      rootMargin: '-50px 0px -50px 0px',
+      threshold: 0.75,
+    };
+
+    const observerCallback = (entries) => {
+      if (manualOverride) return;
+
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveService(entry.target.getAttribute('data-category'));
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    serviceRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [manualOverride]);
+
+  const handleDevClick = (category) => {
+    const serviceElement = serviceRefs.current.find((ref) => ref.getAttribute('data-category') === category);
+
+    setActiveService(category);
+    setManualOverride(true);
+
+    if (serviceElement) {
+      serviceElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+      setTimeout(() => {
+        setManualOverride(false);
+      }, 1000);
+    }
+  };
+  useEffect(() => {
+    const handleResize = () => {
+      console.log('Current width:', window.innerWidth);
+      if (window.innerWidth <= 833) {
+        console.log('Width is 430px or less');
+      }
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+
   return (
     <section className="c-space my-20">
       <h3 className="head-text">Our Services</h3>
-
-      <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">
-        {servicesOffered.map((card) => (
-          <Button
-            key={card.id}
-            duration={Math.floor(Math.random() * 10000) + 10000}
-            borderRadius="1.75rem"
-            style={{
-              borderRadius: `calc(1.75rem* 0.96)`,
-            }}
-            className="flex-1 dark:bg-[rgb(4,7,29)] bg-purl text-black dark:text-white border-neutral-200 dark:border-slate-800">
-            <div className="flex lg:flex-row w-full flex-col items-start justify-start p-3 py-6 md:p-5 lg:p-10 gap-2">
-              <img
-                src={card.thumbnail}
-                alt={card.thumbnail}
-                className="lg:w-32 md:w-20 w-16"
-              />
-              <div className="lg:ms-5">
-                <h1 className="text-start text-white text-xl md:text-2xl font-bold">
-                  {card.title}
-                </h1>
-                <p className="text-start  text-white/70 mt-3 font-semibold">
-                  {card.desc}
-                </p>
-              </div>
+      <div className="container grid pt-16 grid-cols-2">
+        {/* Left side, accordion or normal view */}
+        <div className={`w-full ${isAccordion ? 'accordion-section' : 'w-1/3'}`}>
+          <div className={`flex flex-col gap-y-5 ${isAccordion ? '' : 'sticky top-1/3'}`}>
+            <h3 className="text-white text-sm">
+              Development Of
+              <span className="text-yellow-500">
+                <br /> B¹ Eye
+              </span>
+            </h3>
+            <div className={`flex flex-col gap-y-7 ${isAccordion ? '' : 'flex-col'}`}>
+              {devData.map((item, index) => (
+                <div key={index}>
+                  {isAccordion ? (
+                    <div>
+                      <button
+                        className={`flex gap-x-2 items-center ${activeService === item.text ? 'text-yellow-500' : 'text-white/50'} accordion-button`}
+                        onClick={() => handleDevClick(item.text)}>
+                        <div
+                          className={`flex items-center justify-center p-[5px] rounded-full ${activeService === item.text ? 'bg-yellow-500' : 'bg-black-500'}`}>
+                          <img src={item.icon} alt={item.text} />
+                        </div>
+                        <h2 className="text-sm">{item.text}</h2>
+                      </button>
+                      <div className={`accordion-content ${activeService === item.text ? 'active' : ''}`}>
+                        {/* Display service items or details here if needed */}
+                      </div>
+                    </div>
+                  ) : (
+                    <button
+                      className={`flex gap-x-2 items-center ${activeService === item.text ? 'text-yellow-500' : 'text-white/50'}`}
+                      onClick={() => handleDevClick(item.text)}>
+                      <div
+                        className={`flex items-center justify-center p-[5px] rounded-full ${activeService === item.text ? 'bg-yellow-500' : 'bg-black-500'}`}>
+                        <img src={item.icon} alt={item.text} />
+                      </div>
+                      <h2 className="text-sm">{item.text}</h2>
+                    </button>
+                  )}
+                </div>
+              ))}
             </div>
-          </Button>
-        ))}
+          </div>
+        </div>
+
+        {/* Right side, 2/3 width or accordion view */}
+        <div className={`w-full ${isAccordion ? 'accordion-section' : 'w-2/3'}`}>
+          <div className="space-y-12">
+            {serviceData.map((item, index) => (
+              <div key={index} data-category={item.yellowCircle} ref={(el) => (serviceRefs.current[index] = el)}>
+                <ServiceItem
+                  data={item.data}
+                  serviceCategory={item.serviceCategory}
+                  serviceSection={item.serviceSection}
+                  yellowCircle={item.yellowCircle}
+                  isActive={activeService === item.yellowCircle}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
 export default Experience;
+
+const devData = [
+  {
+    icon: 'https://a.storyblok.com/f/274239/16x16/d228b12923/iotc.svg',
+    text: 'IOTC',
+  },
+  {
+    icon: 'https://a.storyblok.com/f/274239/16x16/d1c1ab6802/apa.svg',
+    text: 'APA',
+  },
+  {
+    icon: 'https://a.storyblok.com/f/274239/16x16/18440b1b86/hf.svg',
+    text: 'HF',
+  },
+  {
+    icon: 'https://a.storyblok.com/f/274239/17x17/1839770985/mrc.svg',
+    text: 'MRC',
+  },
+];
+
+const serviceData = [
+  {
+    yellowCircle: 'IOTC',
+    serviceCategory: 'IoT Connectivity',
+    serviceSection: 'Research & Development STAGE',
+    data: [
+      { service: 'Communication Protocols' },
+      { service: 'Network Topologies' },
+      { service: 'Wearable Compatibility' },
+      { service: 'Low Power Connectivity' },
+      { service: 'Real-Time Communication' },
+      { service: 'Device Management' },
+      { service: 'Data Analytics and Processing' },
+      { service: 'Edge Computing' },
+      { service: 'Device-To-Device Communication Protocols' },
+      { service: 'Integration with Cloud Platforms' },
+      { service: 'Data Security' },
+      { service: 'Sustainable Design' },
+      { service: 'Ethics & Safety' },
+    ],
+  },
+  {
+    yellowCircle: 'APA',
+    serviceCategory: 'Autonomous AI-powered Personal Agent',
+    serviceSection: 'Research & Development STAGE',
+    data: [
+      { service: 'AI-Based' },
+      { service: 'Advanced Algorithms' },
+      { service: 'Continuous Learning' },
+      { service: 'Decision-Making Autonomy' },
+      { service: 'Reasoning & Problem Solving' },
+      { service: 'Multidisciplinary Interaction' },
+      { service: 'Integration & Interoperability' },
+      { service: 'Context-Awareness' },
+      { service: 'Adaptability & Flexibility' },
+      { service: 'Human-AI Collaboration' },
+      { service: 'Emotional Intelligence' },
+      { service: 'Explainability' },
+      { service: 'Transparency' },
+      { service: 'Data Privacy' },
+      { service: 'Resilience to Adversarial Attacks' },
+      { service: 'Scalability' },
+      { service: 'Customizability' },
+      { service: 'Self-Assessment' },
+      { service: 'Robustness & Reliability' },
+      { service: 'Sustainability' },
+      { service: 'Ethics & Safety' },
+    ],
+  },
+  {
+    yellowCircle: 'HF',
+    serviceCategory: 'Health Functions',
+    serviceSection: 'Research & Development STAGE',
+    data: [
+      { service: 'High-Precision Sensors' },
+      { service: 'Health & Wellness Monitoring' },
+      { service: 'Enhanced Data Processing' },
+      { service: 'Personalized Health Recommendations' },
+      { service: 'Stress & Mental Health Monitoring' },
+      { service: 'Multifaceted Activity Recognition' },
+      { service: 'Targeted Environmental Sensing' },
+      { service: 'Gesture-Based Control for Accessibility' },
+      { service: 'Voice Command Integration' },
+      { service: 'Haptic Feedback for Notifications' },
+      { service: 'Emergency Response Features' },
+      { service: 'Healthcare System Integration' },
+      { service: 'Biocompatibility & Safety' },
+      { service: 'Robust Data Privacy Frameworks' },
+      { service: 'Ethics & Safety' },
+    ],
+  },
+  {
+    yellowCircle: 'MRC',
+    serviceCategory: 'Mixed Reality Capabilities',
+    serviceSection: 'Research & Development STAGE',
+    data: [
+      { service: 'Vision Enhancement' },
+      { service: 'Biomimetic Optics' },
+      { service: 'AR & VR Integration' },
+      { service: 'Enhanced Connectivity' },
+      { service: 'On-Eye Rendering & Display' },
+      { service: 'Rich Image Overlays' },
+      { service: 'Contextual Visual Overlays' },
+      { service: 'Intuitive Controls' },
+      { service: 'Intuitive Eye-Controlled Interaction' },
+      { service: 'Environmental Interaction Detection' },
+      { service: 'Multisensory & Actuation Technologies' },
+      { service: 'Haptic & Sensory Feedback' },
+      { service: 'Spatial Audio Integration' },
+      { service: 'Multi-Modal Biometric Integration' },
+      { service: 'Collaborative Mixed Reality Streams' },
+      { service: 'Biometric Recognition' },
+      { service: 'Enhanced User Experience' },
+      { service: 'Ethics & Safety' },
+    ],
+  },
+];

@@ -3,7 +3,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
-
+import {motion} from 'framer-motion'
 import Cube from '../components/Cube.jsx';
 import Rings from '../components/Rings.jsx';
 import ReactLogo from '../components/ReactLogo.jsx';
@@ -16,6 +16,21 @@ import { HackerRoom } from '../components/HackerRoom.jsx';
 import Can from '../components/Can.jsx';
 import Card from '../components/Card.jsx'
 const Hero = () => {
+
+  const words = [
+    'Transform', 'Grow', 'Dominate', 'Thrive', 'Scale', 'Succeed', 
+    'Excel', 'Advance', 'Expand', 'Innovate', 'Elevate', 'Create', 'Craft'
+  ];
+
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 2000); // Change word every 2 seconds
+
+    return () => clearInterval(intervalId);
+  }, [words.length]);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
 
   // Use media queries to determine screen size
@@ -80,17 +95,21 @@ const Hero = () => {
       id="home">
       <img src="/assets/spotlight2.png" alt="spotlight" className="absolute top-0 right-0 z-0" />
  
-      <div className="w-3/5 mx-auto flex max-xl:w-full ml-4 max-sm:ml-0 z-10 flex-col sm:mt-36 mt-20 c-space gap-x-3">
-        <p className="hero_tag  text-red-500">
-          {/* Transform<span className="text-red-500 xl:text-7xl">. </span> Grow
-          <span className="text-red-500 xl:text-7xl">. </span> Dominate
-          <span className="text-red-500 xl:text-7xl">. </span> */}
-          Together, we'll help you
+      <div className="w-3/5 mx-auto flex max-xl:w-full ml-4 max-sm:ml-0 z-10 flex-col sm:mt-36  mt-20 c-space gap-x-3">
+        <p className="hero_tag_main  text-gray_gradient  text-white-500"> 
+          Together, we'll help you {' '}
+          <motion.span
+          className='hero_tag  text-red-500'
+            key={currentWordIndex} // Use key to trigger the animation on change
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.5 }}>
+            {words[currentWordIndex]}
+          </motion.span>
         </p>
-        <p className="text-md font-medium text-purple-200 text-opacity-30 font-custom">
-        Transform, grow, dominate, thrive, scale, succeed, excel, advance, expand, innovate, elevate, create, craft
-        </p>
-        <div className="mt-5 max-xl:inline flex">
+       
+        <div className="mt-5 self-center max-xl:inline flex">
           <a href="#about" className="w-fit">
             <Button name="Get Started" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
           </a>

@@ -28,9 +28,9 @@ const Contact = () => {
         'template_uzait1p',
         {
           from_name: form.name,
-          to_name: 'Abdullah Dev',
+          to_name: 'Brain',
           from_email: form.email,
-          to_email: 'webminds.yt@gmail.com',
+          to_email: 'brian@crumblab.com',
           message: form.message,
         },
         'HQoPFuxeKNMAX8H3i',
@@ -126,7 +126,7 @@ const Contact = () => {
               <span className="field-label">Project budget (USD): </span>
               <div className=" flex gap-x-8 flex-wrap gap-y-9">
                 {budgetData.map((item, index) => (
-                  <button type="button" id={index} onClick={() => setSelected(item.amount)}>
+                  <button type="button" key={index} onClick={() => setSelected(item.amount)}>
                     <span
                       className={`cursor-pointer bg-n-6 px-5 py-3 rounded-lg text-lg ${
                         selected === item.amount ? ' text-n-1 border-n-4 border' : 'text-n-3  '
