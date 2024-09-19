@@ -17,6 +17,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [logoSrc, setLogoSrc] = useState('/assets/logo2.webp'); // Default logo
   const [fadeClass, setFadeClass] = useState('');
+  const [headerClass, setHeaderClass] = useState('header-bg'); // Default background class
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const closeMenu = () => setIsOpen(false);
@@ -28,23 +29,25 @@ const Navbar = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setFadeClass('fade-out'); // Start fade-out transition
+            setFadeClass('fade-out');
+            setHeaderClass('header-bg white-background'); // Change background color
             setTimeout(() => {
               setLogoSrc('/assets/logo.webp'); // Change to the new logo
               setFadeClass(''); // Remove fade-out class
-            }, 500); // Match the duration of the CSS transition
+            }, 500);
           } else {
-            setFadeClass('fade-out'); // Start fade-out transition
+            setFadeClass('fade-out');
+            setHeaderClass('header-bg'); // Revert background color
             setTimeout(() => {
               setLogoSrc('/assets/logo2.webp'); // Revert back to default logo
               setFadeClass(''); // Remove fade-out class
-            }, 500); // Match the duration of the CSS transition
+            }, 500);
           }
         });
       },
       {
-        threshold: 0.5, // Trigger when 50% of the section is visible
-        rootMargin: '250px 0px -300px 0px', // Adjust the bottom margin to trigger later
+        threshold: 0.5,
+        rootMargin: '250px 0px -300px 0px',
       }
     );
 
@@ -56,8 +59,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="fixed top-10 left-0 right-0 z-50 backdrop-blur-xs">
-      <div className="max-w-3xl mx-auto bg-[#ffffff1a] rounded-3xl bg-opacity-50 backdrop-blur-md">
+    <header className={`fixed top-10 left-0 right-0 z-50 backdrop-blur-xs`}>
+      <div className={`max-w-3xl mx-auto rounded-3xl bg-opacity-50  ${headerClass} backdrop-blur-md`}>
         <div className="flex justify-between items-center py-3 mx-auto c-space">
           <a href="/" className="text-white font-bold text-xl hover:text-white transition-colors">
             <img src={logoSrc} className={`h-5 object-contain logo-transition ${fadeClass}`} alt="logo" />
@@ -67,7 +70,7 @@ const Navbar = () => {
             onClick={toggleMenu}
             className="text-white hover:text-white focus:outline-none sm:hidden flex"
             aria-label="Toggle menu">
-            <img src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} alt="toggle" className="w-6 h-6" />
+            <img src={isOpen ? 'assets/cl ose.svg' : 'assets/menu.svg'} alt="toggle" className="w-6 h-6" />
           </button>
 
           <nav className="sm:flex hidden">

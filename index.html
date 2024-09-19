@@ -4,13 +4,69 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/assets/logo_small.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preload important resources -->
+    <link rel="preload" href="/assets/logo_small.png" as="image" />
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="CrumbBlab - Top agency providing Branding, Logo Design, SEO, Video Editing, and more. Boost your digital presence today!"
+    />
+    <meta
+      name="keywords"
+      content="Branding, Logo Design, SEO Onsite, Page Speed Optimization, Schema Markup, Video Editing, Marketing Video, Social Media Banners"
+    />
+    <meta name="author" content="CrumbBlab Agency" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="CrumbBlab | Expert Branding & Digital Services" />
+    <meta
+      property="og:description"
+      content="Get expert services in Branding, SEO, Video Editing, and more to enhance your business presence."
+    />
+    <meta property="og:image" content="/assets/logo_small.png" />
+    <meta property="og:url" content="https://crum-blab.vercel.app/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CrumbBlab | Expert Branding & Digital Services" />
+    <meta
+      name="twitter:description"
+      content="Get expert services in Branding, SEO, Video Editing, and more to enhance your business presence."
+    />
+    <meta name="twitter:image" content="/assets/logo_small.png" />
+
+    <!-- Font Links -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet" />
-    <title>CrumbBlab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@900&display=swap" rel="stylesheet" />
+
+    <title>CrumbBlab | Expert Branding & Digital Services</title>
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "CrumbBlab Agency",
+        "description": "We provide expert branding, logo design, SEO, video editing, and more digital services.",
+        "url": "https://crum-blab.vercel.app/",
+        "logo": "https://crum-blab.vercel.app//assets/logo_small.png",
+        "sameAs": ["https://facebook.com/crumbblab", "https://twitter.com/crumbblab"],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "City",
+          "addressCountry": "Country"
+        }
+      }
+    </script>
+
+    <!-- Vite Script for React -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

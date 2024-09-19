@@ -3,23 +3,26 @@ import { Suspense, useEffect, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { useMediaQuery } from 'react-responsive';
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
-import {motion} from 'framer-motion'
-import Cube from '../components/Cube.jsx';
-import Rings from '../components/Rings.jsx';
-import ReactLogo from '../components/ReactLogo.jsx';
-import Button from '../components/Button.jsx';
-import Target from '../components/Target.jsx';
-import CanvasLoader from '../components/Loading.jsx';
-import HeroCamera from '../components/HeroCamera.jsx';
-import { calculateSizes } from '../constants/index.js';
-import { HackerRoom } from '../components/HackerRoom.jsx';
+import { motion } from 'framer-motion';  
+import Button from '../components/Button.jsx'; 
+import CanvasLoader from '../components/Loading.jsx'; 
 import Can from '../components/Can.jsx';
-import Card from '../components/Card.jsx'
+import Card from '../components/Card.jsx';
 const Hero = () => {
-
   const words = [
-    'Transform', 'Grow', 'Dominate', 'Thrive', 'Scale', 'Succeed', 
-    'Excel', 'Advance', 'Expand', 'Innovate', 'Elevate', 'Create', 'Craft'
+    'Transform',
+    'Grow',
+    'Dominate',
+    'Thrive',
+    'Scale',
+    'Succeed',
+    'Excel',
+    'Advance',
+    'Expand',
+    'Innovate',
+    'Elevate',
+    'Create',
+    'Craft',
   ];
 
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -32,13 +35,10 @@ const Hero = () => {
     return () => clearInterval(intervalId);
   }, [words.length]);
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  const [cardCursor, setCardCursor] = useState({ x: 0, y: 0, z: 0 });
 
   // Use media queries to determine screen size
-  const isSmall = useMediaQuery({ maxWidth: 440 });
   const isMobile = useMediaQuery({ maxWidth: 768 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
-
-  const sizes = calculateSizes(isSmall, isMobile, isTablet);
 
   const controls = useControls('Can', {
     position: {
@@ -57,16 +57,28 @@ const Hero = () => {
       max: [5, 5, 5],
     },
   });
-  
 
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setCursor({
+        x: e.clientX / window.innerWidth,
+      });
+      
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // -1.7, -1.8
   const CardControls = useControls('Card', {
     position: {
-      value: isMobile ? [0, 0, 14] : [0, 0, 19], // smaller for mobile
+      value: isMobile ? [0, 0, 14] : [0,  -1.5, 19],
       min: [-50, -50, -50],
       max: [50, 50, 50],
     },
     rotation: {
-      value: [0, -8, 0],
+      value: [1.57,  3.13, 1.55], // Small rotation
       min: [-Math.PI, -Math.PI, -Math.PI],
       max: [Math.PI, Math.PI, Math.PI],
     },
@@ -77,48 +89,51 @@ const Hero = () => {
     },
   });
   
-
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setCursor({
-        x: e.clientX / window.innerWidth,
+      setCardCursor({
+        x: e.clientX / window.innerWidth - 0.5, // Adjust for center
+        y: e.clientY / window.innerHeight - 0.5,
+        z: 0,
       });
     };
-
+  
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
+  
+
 
   return (
     <section
-      className="min-h-screen w-full py-5 mb-5 max-xl:flex-col max-xl:pb-80 items-center flex relative"
+      className="min-h-screen w-full py-5 mb-5 max-xl:flex-col max-xl:pb-80 items-  flex relative"
       id="home">
       <img src="/assets/spotlight2.png" alt="spotlight" className="absolute top-0 right-0 z-0" />
- 
-      <div className="w-3/5 mx-auto flex max-xl:w-full ml-4 max-sm:ml-0 z-10 flex-col sm:mt-36  mt-20 c-space gap-x-3">
-        <p className="hero_tag_main  text-gray_gradient  text-white-500"> 
-          Together, we'll help you {' '}
+
+      <div className="w-3/5 mx-auto flex max-xl:w-full ml-4 max-sm:ml-0 z-10 flex-col sm:mt-36  mt-32 c-space   gap-x-3">
+        <p className="hero_tag_main  text-white   ">
+          Together, we'll help you{' '} <br />
           <motion.span
-          className='hero_tag  text-red-500'
+            className="hero_tag   lowercase text-red-500"
             key={currentWordIndex} // Use key to trigger the animation on change
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.5 }}>
-            {words[currentWordIndex]}
+            {'  ('} {words[currentWordIndex]} {') '}
           </motion.span>
         </p>
-       
-        <div className="mt-5 self-center max-xl:inline flex">
-          <a href="#about" className="w-fit">
-            <Button name="Get Started" isBeam containerClass="sm:w-fit w-full sm:min-w-96" />
+
+        <div className="mt-5 self-center max-sm:w-full max-xl:inline flex">
+          <a href="#overview-section" className="w-fit">
+            <Button name="Get Started" isBeam containerClass="w-96 max-sm:w-full" />
           </a>
         </div>
       </div>
 
       <div className="w-2/3 relative max-xl:py-40" />
 
-      <div className="absolute -z-0 max-xl:mb-20  max-xl:left-auto left-96 w-full h-full">
+      <div className="absolute -z-0 max-xl:mb-32  max-xl:left-auto left-96 w-full h-full">
         <Leva hidden />
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
@@ -148,22 +163,14 @@ const Hero = () => {
           </Suspense>
         </Canvas>
       </div>
-      <div className="absolute -z-10 max-xl:mb-20  max-xl:hidden left-60 w-full h-full">
+      {/* 1.6,  6.3, 1.5 */}
+      <div className="absolute -z-10 max-xl:mb-20 -bottom-32  max-xl:hidden -left-96 w-full h-full">
         <Leva hidden />
         <Canvas className="w-full h-full">
           <Suspense fallback={<CanvasLoader />}>
             <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-{/* -8.00 */}
-            <Card {...CardControls}  />
-
-            {/* Orbit Controls */}
-            {/* <OrbitControls
-              enableZoom={false}
-              maxPolarAngle={Math.PI / 2}
-              minPolarAngle={Math.PI / 2}
-              maxAzimuthAngle={Math.PI / 16}
-              minAzimuthAngle={-Math.PI / 16}
-            /> */}
+            {/* -8.00 */}
+            <Card {...CardControls} cardCursor={cardCursor} />
 
             {/* Lighting Setup */}
             <ambientLight intensity={0.5} color="#ffffff" />
@@ -222,5 +229,3 @@ export default Hero;
         </a>
       </div>
  */
-
-      

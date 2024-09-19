@@ -68,7 +68,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <section className="c-space my-20">
+    <section className="c-space my-20 " id='service-section'>
       <h3 className="head-text">Our Services</h3>
       <div className={`  ${isAccordion ? 'w-full mt-12' : ' grid pt-16 grid-cols-2'} `}>
         {/* Left side */}
@@ -77,7 +77,7 @@ const Experience = () => {
             {!isAccordion && (
               <h3 className="text-white text-sm">
                 Development Of
-                <span className="text-yellow-500">
+                <span className="text-red-500">
                   <br /> B¹ Eye
                 </span>
               </h3>
@@ -102,10 +102,10 @@ const Experience = () => {
                     />
                   ) : (
                     <button
-                      className={`flex gap-x-2 items-center ${activeService === item.text ? 'text-yellow-500' : 'text-white/50'}`}
+                      className={`flex gap-x-2 items-center ${activeService === item.text ? 'text-red-500' : 'text-white/50'}`}
                       onClick={() => handleDevClick(item.text)}>
                       <div
-                        className={`flex items-center justify-center p-[5px] rounded-full ${activeService === item.text ? 'bg-yellow-500' : 'bg-black-500'}`}>
+                        className={`flex items-center justify-center p-[5px] rounded-full ${activeService === item.text ? 'bg-red-500' : 'bg-black-500'}`}>
                         <img src={item.icon} alt={item.text} />
                       </div>
                       <h2 className="text-sm">{item.text}</h2>

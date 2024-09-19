@@ -16,11 +16,11 @@ const AccordionItem = ({ title, icon, content, isAccordion }) => {
   return (
     <div className="w-full">
       <div
-        className={`border-b ${isAccordion ? 'bg-yellow-500' : ' bg-black-500'} text-white rounded-2xl border-gray-300`}>
+        className={`border-b ${isAccordion ? 'border-yellow-500' : 'border-white'} text-white rounded-2xl`}>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full px-5 text-left py-3 font-semibold flex justify-between items-center">
-          <div className="flex items-center justify-center p-[5px] rounded-full bg-yellow-500">
+          className="w-full px-5 text-left py-3  font-semibold flex justify-between items-center border border-white rounded-2xl">
+          <div className="flex items-center bg-red-500 justify-center p-[5px] rounded-full border border-red-500">
             <img src={icon} alt="icon" />
           </div>
 

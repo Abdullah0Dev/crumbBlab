@@ -1,6 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/general-sans');
 /* @import url('https://fonts.googleapis.com/css2?family=Courgette&display=swap'); */
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -20,7 +20,7 @@ body {
   }
 
   .head-text {
-    @apply sm:text-4xl text-3xl font-semibold text-gray_gradient;
+    @apply sm:text-4xl text-3xl font-semibold text-white;
   }
 
   .nav-ul {
@@ -72,7 +72,7 @@ body {
 
   /* hero section */
   .hero_tag {
-    @apply text-start xl:text-6xl md:text-5xl sm:text-4xl text-3xl font-custom font-black !leading-normal;
+    @apply  xl:text-6xl md:text-5xl sm:text-4xl text-3xl font-custom font-black !leading-normal;
   }
   /* hero section ** */
   .hero_tag_main  {
@@ -215,36 +215,14 @@ body {
 }
 
 /* Hide default scroll */
-body {
+html {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
 }
-body::-webkit-scrollbar {
+html::-webkit-scrollbar {
   display: none;  /* Safari and Chrome */
 }
-
-/* Custom scrollbar for the entire page */
-html {
-  scrollbar-width: thin; /* For Firefox */
-  scrollbar-color: #888 transparent; /* Scroll thumb and background */
-}
-
-html::-webkit-scrollbar {
-  width: 4px;  /* Thin scrollbar width */
-}
-
-html::-webkit-scrollbar-track {
-  background: transparent;  /* Scrollbar track (empty space) */
-}
-
-html::-webkit-scrollbar-thumb {
-  background-color: #888;  /* Scrollbar color */
-  border-radius: 10px;     /* Rounded scrollbar */
-}
-
-html::-webkit-scrollbar-thumb:hover {
-  background-color: #555;  /* Scrollbar color on hover */
-}
+ 
 
  /* @media */
 @media (max-width: 425px) {
@@ -266,4 +244,27 @@ html::-webkit-scrollbar-thumb:hover {
   .accordion-content.active {
     display: block;
   }
+}
+/* CSS for smooth transition */
+.logo-transition {
+  transition: opacity 0.5s ease, background-color 0.5s ease; /* Adjust the duration and easing as needed */
+  opacity: 1; /* Ensure logo is visible by default */
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* Apply background color changes if needed */
+.header-transition {
+  transition: background-color 0.5s ease;
+}
+
+/* Example for the header background */
+.header-bg {
+  background-color: #ffffff1a; /* Default background */
+}
+
+.header-bg.white-background {
+  background-color: #ffffff; /* Background when section is intersecting */
 }
