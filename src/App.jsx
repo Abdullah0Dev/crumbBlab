@@ -6,13 +6,15 @@ import Clients from './sections/Clients.jsx';
 import WorkExperience from './sections/Experience.jsx';
 import React from 'react';
 import Overview from './sections/Overview.jsx';
+import Projects from './sections/Projects.jsx';
 const App = () => {
   return (
     <main className=" overflow-x-clip relative">
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Overview />
       <WorkExperience />
+      {/* <Projects /> */}
       <Clients />
       <Contact />
       <Footer />

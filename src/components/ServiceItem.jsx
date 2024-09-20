@@ -16,7 +16,7 @@ const ServiceItem = ({ yellowCircle, serviceCategory, serviceSection, data, isAc
                 className={`text-center w-16 items-center p-1 rounded-full ${isActive ? 'bg-red-500' : 'bg-black-500'}`}>
                 <p className="text-white text-sm">{yellowCircle}</p>
               </div>
-              <h2 className="text-white font-light text-2xl mt-2">{serviceCategory}</h2>
+              <h2 className={`text-white font-light text-2xl mt-2 `}>{serviceCategory}</h2>
             </motion.div>
           )}
 

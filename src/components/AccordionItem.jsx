@@ -19,13 +19,13 @@ const AccordionItem = ({ title, icon, content, isAccordion }) => {
         className={`border-b ${isAccordion ? 'border-yellow-500' : 'border-white'} text-white rounded-2xl`}>
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full px-5 text-left py-3  font-semibold flex justify-between items-center border border-white rounded-2xl">
+          className="w-full px-5 text-left py-3  font-semibold flex justify-between items-center border-b-0 border border-white rounded-2xl">
           <div className="flex items-center bg-red-500 justify-center p-[5px] rounded-full border border-red-500">
             <img src={icon} alt="icon" />
           </div>
 
           {/* Display title only when width is not less than 470px */}
-          {windowWidth >= 470 && <p>{title}</p>}
+          {windowWidth >= 470 && <p className='font-custom'>{title}</p>}
           
           <span>{isOpen ? '-' : '+'}</span>
         </button>
@@ -44,3 +44,5 @@ const AccordionItem = ({ title, icon, content, isAccordion }) => {
 };
 
 export default AccordionItem;
+
+// oriantion stuff couldn't understand it...
