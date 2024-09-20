@@ -54,7 +54,7 @@ const Experience = () => {
     const handleResize = () => {
       if (window.innerWidth <= 833) {
         console.log(window.innerWidth);
-        
+
         setIsAccordion(true);
       } else {
         setIsAccordion(false);
@@ -68,20 +68,12 @@ const Experience = () => {
   }, []);
 
   return (
-    <section className="c-space my-20 " id='service-section'>
+    <section className="c-space my-20 " id="services">
       <h3 className="head-text">Our Services</h3>
       <div className={`  ${isAccordion ? 'w-full mt-12' : ' grid pt-16 grid-cols-2'} `}>
         {/* Left side */}
         <div className={`w-full ${isAccordion ? ' ' : 'w-1/3'}`}>
           <div className={`flex flex-col gap-y-5 ${isAccordion ? '' : 'sticky top-1/3'}`}>
-            {!isAccordion && (
-              <h3 className="text-white text-sm">
-                Development Of
-                <span className="text-red-500">
-                  <br /> B¹ Eye
-                </span>
-              </h3>
-            )}
             <div className={`flex flex-col gap-y-7 ${isAccordion ? 'w-full' : 'flex-col'}`}>
               {devData.map((item, index) => (
                 <div key={index}>
@@ -147,29 +139,24 @@ const devData = [
   {
     icon: 'https://a.storyblok.com/f/274239/16x16/d228b12923/iotc.svg',
     text: 'IOTC',
-    serviceCategory: 'IoT Connectivity',
+    serviceCategory: 'Branding & identity',
   },
   {
     icon: 'https://a.storyblok.com/f/274239/16x16/d1c1ab6802/apa.svg',
     text: 'APA',
-    serviceCategory: 'Autonomous AI-powered Personal Agent',
-  },
-  {
-    icon: 'https://a.storyblok.com/f/274239/16x16/18440b1b86/hf.svg',
-    text: 'HF',
-    serviceCategory: 'Health Functions',
+    serviceCategory: 'Digital Presence',
   },
   {
     icon: 'https://a.storyblok.com/f/274239/17x17/1839770985/mrc.svg',
     text: 'MRC',
-    serviceCategory: 'Mixed Reality Capabilities',
+    serviceCategory: 'Digital Presence',
   },
 ];
 
 const serviceData = [
   {
     yellowCircle: 'IOTC',
-    serviceCategory: 'IoT Connectivity',
+    serviceCategory: 'Branding & identity',
     serviceSection: 'Research & Development STAGE',
     data: [
       { service: 'Communication Protocols' },
@@ -189,7 +176,7 @@ const serviceData = [
   },
   {
     yellowCircle: 'APA',
-    serviceCategory: 'Autonomous AI-powered Personal Agent',
+    serviceCategory: 'Digital Presence',
     serviceSection: 'Research & Development STAGE',
     data: [
       { service: 'AI-Based' },
@@ -216,30 +203,8 @@ const serviceData = [
     ],
   },
   {
-    yellowCircle: 'HF',
-    serviceCategory: 'Health Functions',
-    serviceSection: 'Research & Development STAGE',
-    data: [
-      { service: 'High-Precision Sensors' },
-      { service: 'Health & Wellness Monitoring' },
-      { service: 'Enhanced Data Processing' },
-      { service: 'Personalized Health Recommendations' },
-      { service: 'Stress & Mental Health Monitoring' },
-      { service: 'Multifaceted Activity Recognition' },
-      { service: 'Targeted Environmental Sensing' },
-      { service: 'Gesture-Based Control for Accessibility' },
-      { service: 'Voice Command Integration' },
-      { service: 'Haptic Feedback for Notifications' },
-      { service: 'Emergency Response Features' },
-      { service: 'Healthcare System Integration' },
-      { service: 'Biocompatibility & Safety' },
-      { service: 'Robust Data Privacy Frameworks' },
-      { service: 'Ethics & Safety' },
-    ],
-  },
-  {
     yellowCircle: 'MRC',
-    serviceCategory: 'Mixed Reality Capabilities',
+    serviceCategory: 'Digital Presence',
     serviceSection: 'Research & Development STAGE',
     data: [
       { service: 'Vision Enhancement' },

@@ -76,7 +76,7 @@ body {
   }
   /* hero section ** */
   .hero_tag_main  {
-    @apply text-center xl:text-6xl md:text-5xl sm:text-4xl text-3xl font-generalsans font-black !leading-normal;
+    @apply max-xl:text-center xl:text-6xl md:text-5xl sm:text-4xl text-3xl font-custom font-thin !leading-normal;
   }
   /* about section */
   .grid-container {
@@ -263,8 +263,4 @@ html::-webkit-scrollbar {
 /* Example for the header background */
 .header-bg {
   background-color: #ffffff1a; /* Default background */
-}
-
-.header-bg.white-background {
-  background-color: #ffffff; /* Background when section is intersecting */
-}
+} 

@@ -31,8 +31,8 @@ const ServiceItem = ({ yellowCircle, serviceCategory, serviceSection, data, isAc
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.2 + index / 7, ease: 'easeOut' }}
                   key={index}
-                  className="flex items-center group hover:text-white/90">
-                  <span className="w-2 h-2 border border-white/50 rounded-full mr-10 group-hover:border-red-300"></span>
+                  className="flex items-center group hover:text-red-500">
+                  <span className="w-2 h-2 border border-white/50 rounded-full mr-10 group-hover:border-red-500"></span>
                   <span className="break-words">{item.service}</span> {/* Wrapped text */}   
                 </motion.li>
               ))}

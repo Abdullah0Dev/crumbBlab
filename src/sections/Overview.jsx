@@ -33,7 +33,7 @@ const Overview = () => {
               </motion.h2>{' '}
             </motion.div>
             <motion.a
-              href="#service-section"
+              href="#services"
               initial={{ y: 30 }}
               whileInView={{ y: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
