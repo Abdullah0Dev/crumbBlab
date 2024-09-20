@@ -138,24 +138,24 @@ export default Experience;
 const devData = [
   {
     icon: 'https://a.storyblok.com/f/274239/16x16/d228b12923/iotc.svg',
-    text: 'IOTC',
+    text: 'BAI',
     serviceCategory: 'Branding & identity',
   },
   {
     icon: 'https://a.storyblok.com/f/274239/16x16/d1c1ab6802/apa.svg',
-    text: 'APA',
+    text: 'DP',
     serviceCategory: 'Digital Presence',
   },
   {
     icon: 'https://a.storyblok.com/f/274239/17x17/1839770985/mrc.svg',
-    text: 'MRC',
-    serviceCategory: 'Digital Presence',
+    text: 'WAO',
+    serviceCategory: 'Website And Other',
   },
 ];
 
 const serviceData = [
   {
-    yellowCircle: 'IOTC',
+    yellowCircle: 'BAI',
     serviceCategory: 'Branding & identity',
     serviceSection: 'Research & Development STAGE',
     data: [
@@ -175,7 +175,7 @@ const serviceData = [
     ],
   },
   {
-    yellowCircle: 'APA',
+    yellowCircle: 'DP',
     serviceCategory: 'Digital Presence',
     serviceSection: 'Research & Development STAGE',
     data: [
@@ -203,8 +203,8 @@ const serviceData = [
     ],
   },
   {
-    yellowCircle: 'MRC',
-    serviceCategory: 'Digital Presence',
+    yellowCircle: 'WAO',
+    serviceCategory: 'Website And Other',
     serviceSection: 'Research & Development STAGE',
     data: [
       { service: 'Vision Enhancement' },

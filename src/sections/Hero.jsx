@@ -132,12 +132,12 @@ const Hero = () => {
         </div>
         <div className="w-72 relative " />
         <div className="w-3/5 max-xl:w-full max-w-3xl max-xl:mt-12  relative max-xl:px-3 px-12  text-white">
-          <h1 className=" hero_tag_main text-center text-white">Why We're Here?</h1>
+          <h1 className=" hero_tag_main text-center text-white">Why We're Here</h1>
           <h3 className="text-center text-[#707070]">
             I've been through it—the endless search for developers who actually get the job done. Missed deadlines, poor
             communication, and feeling like no one cared as much as I did. It was infuriating. I knew there had to be a
             better way.
-            <br />
+            <br />  <br />
             That's why I built <span className="text-red-500"> Crumblab</span>. I was sick of the excuses, the delays,
             and the stress. You deserve a team that delivers—no BS, no runaround. We make IT & designing simple, fast,
             and reliable, because I've been in your shoes, and I know how frustrating it is when things just don't work.
