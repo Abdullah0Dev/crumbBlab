@@ -43,13 +43,13 @@ export const navLinks = [
   },
   {
     id: 2,
-    name: 'About',
-    href: '#about',
+    name: 'Services',
+    href: '#services',
   },
   {
     id: 3,
-    name: 'Work',
-    href: '#work',
+    name: 'Reviews',
+    href: '#reviews',
   },
   {
     id: 4,

@@ -2,10 +2,10 @@ import { clientReviews } from '../constants/index.js';
 
 const Clients = () => {
   return (
-    <section className="c-space my-20">
+    <section className="c-space my-20" id='reviews'>
       <h3 className="head-text font-custom">Hear from Our Clients</h3>
 
-      <div className="client-container">
+      <div className="client-container" >
         {clientReviews.map((item) => (
           <div key={`review-${item.id}`} className="client-review">
             <div>
