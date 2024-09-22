@@ -5,6 +5,8 @@ import useAlert from '../hooks/useAlert.js';
 import Alert from '../components/Alert.jsx';
 import CustomButton from '../components/CustomButton.jsx';
 import { a, select } from 'framer-motion/client';
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const Contact = () => {
   const formRef = useRef();
@@ -66,6 +68,17 @@ const Contact = () => {
       );
   };
 
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash === '#contact') {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [hash]);
   return (
     <section className="c-space my-20" id="contact">
       {alert.show && <Alert {...alert} />}

@@ -45,4 +45,4 @@ const AccordionItem = ({ title, icon, content, isAccordion }) => {
 
 export default AccordionItem;
 
-// oriantion stuff couldn't understand it...
+// oriantion stuff couldn't understand it...smooth and cool

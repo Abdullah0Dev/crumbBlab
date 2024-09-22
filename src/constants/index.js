@@ -1,3 +1,40 @@
+import {
+  benefitIcon1,
+  benefitIcon2,
+  benefitIcon3,
+  benefitIcon4,
+  benefitImage2,
+  chromecast,
+  disc02,
+  discord,
+  discordBlack,
+  facebook,
+  figma,
+  file02,
+  framer,
+  homeSmile,
+  instagram,
+  notification2,
+  notification3,
+  notification4,
+  notion,
+  photoshop,
+  plusSquare,
+  protopie,
+  raindrop,
+  recording01,
+  recording03,
+  roadmap1,
+  roadmap2,
+  roadmap3,
+  roadmap4,
+  searchMd,
+  slack,
+  sliders04,
+  telegram,
+  twitter,
+  yourlogo,
+} from "../assets";
 export const navLinks = [
   {
     id: 1,
@@ -359,3 +396,11 @@ export const servicesOffered = [
     thumbnail: '/assets/advertise.png',
   },
 ];
+
+
+
+export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
+
+export const notificationImages = [notification4, notification3, notification2];
+
+export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
