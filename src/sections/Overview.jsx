@@ -4,7 +4,7 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 
 const Overview = () => {
   return (
-    <section id="overview-section" className="w-full  h-screen bg-[#EFEFEF] flex items-center justify-center">
+    <section id="overview-section" className="w-full max-sm:px-5 h-screen bg-[#EFEFEF] flex items-center justify-center">
       <div className="max-w-3xl max-md:item-center  py-24 items-center">
         <div className="flex self-center max-xl:flex-col max-xl:gap-y-32 gap-x-44">
           <motion.div

@@ -10,9 +10,10 @@ const Experience = () => {
 
   useEffect(() => {
     const observerOptions = {
-      rootMargin: '-50px 0px -50px 0px',
-      threshold: 0.75,
+      rootMargin: '-120px 0px -210px 0px', // Adjust margin for more accurate detection
+      threshold: 0.5, // Reduced threshold for earlier detection
     };
+
 
     const observerCallback = (entries) => {
       if (manualOverride) return;

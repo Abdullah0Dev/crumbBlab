@@ -85,12 +85,7 @@ console.log(form.budget);
   return (
     <section className="c-space my-20 " id="contact">
       {alert.show && <Alert {...alert} />}
-      <div className="hidden relative justify-center mb-[6.5rem] lg:flex">
       
-        <div className="absolute top-1/2 left-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-          <img src={'/assets/stars.svg'} className="w-full" width={950} height={400} alt="Stars" />
-        </div>
-      </div>
       <div className="relative  min-h-screen bg-opacity-15 rounded-3xl border border-zinc-600 bg-cover flex bg-[url(/assets/gradient.png)] items-center justify-center flex-col">
         <div className="contact-container">
           <h3 className="head-text">Hey! Lets chat about your project</h3>
