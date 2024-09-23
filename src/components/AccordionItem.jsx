@@ -25,11 +25,13 @@ const AccordionItem = ({ title, icon, content, isAccordion }) => {
           </div>
 
           {/* Display title only when width is not less than 470px */}
-          {windowWidth >= 470 && <p className='font-custom'>{title}</p>}
+          {windowWidth >= 470 ? <p className='font-custom'>{title}</p> : (
+            <p className='text-sm'>{title}</p>
+          )}
           
           <span>{isOpen ? '-' : '+'}</span>
         </button>
-        <motion.div initial={false} animate={{ height: isOpen ? 'auto' : 0 }} className="overflow-hidden">
+        <motion.div initial={false} animate={{ height: isOpen ? 'auto' : 0 }} className="pb-3">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: isOpen ? 1 : 0 }}

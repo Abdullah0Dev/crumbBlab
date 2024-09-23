@@ -5,7 +5,7 @@ import { FaArrowRightLong } from 'react-icons/fa6';
 const Overview = () => {
   return (
     <section id="overview-section" className="w-full  h-screen bg-[#EFEFEF] flex items-center justify-center">
-      <div className="max-w-3xl max-md:item-center  py-20 items-center">
+      <div className="max-w-3xl max-md:item-center  py-24 items-center">
         <div className="flex self-center max-xl:flex-col max-xl:gap-y-32 gap-x-44">
           <motion.div
             initial={{ opacity: 0, filter: 'blur(10px)' }}
@@ -13,7 +13,11 @@ const Overview = () => {
             transition={{ duration: 0.9, ease: 'easeOut' }}
             className="overview flex flex-col items-center  ">
             <h2 className="text-black/30 text-xs font-light">Overview</h2>
-            <h2 className="text-black/80 font-bold text-xl ">What’s CrumbLab</h2>
+            <h2 className="text-black/80 font-bold text-xl flex ">What’s <h2 className="flex flex-col items-center ml-1 ">
+              {" "}
+                 CrumbLab
+               <span className='w-full bg-red-500 h-1' /> 
+               </h2> </h2>
           </motion.div>
           <motion.div className="overview flex flex-col items-start mt-2 gap-y-2">
             <motion.div
@@ -21,8 +25,8 @@ const Overview = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: 'easeOut' }}
               className="text-xl w-96 max-[410px]:text-base max-[410px]:w-full max-[410px]:pl-2 text-black/90">
-              <h2 className="flex-wrap flex text-wrap">
-                Stop settling for mediocre results. At CrumbLab, we don’t just build websites and designs—we craft
+              <h2 className="flex-wrap  text-wrap">
+                Stop settling for mediocre results. At <span className="text-red-500">CrumbLab</span>, we don’t just build websites and designs—we craft
                 digital powerhouses that drive your business forward. When you work with us, you're not getting just
                 another service provider—you’re partnering with a team that’s obsessed with your success. <br />
                 <br /> We make it easy for you to dominate your space with bold, impactful solutions that deliver real
