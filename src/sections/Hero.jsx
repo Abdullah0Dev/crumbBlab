@@ -43,7 +43,7 @@ const Hero = () => {
       <div className=" flex items-center justify-between w-full px-12 max-xl:px-5 gap-x-24 max-xl:flex-col">
         <div className="w-2/5   max-xl:w-full">
           <h1 className="hero_tag_main text-white text-4xl md:text-5xl lg:text-6xl">
-            Together, we'll help you {" "}
+            Together, we'll help <br className='max-xl:hidden' /> you {" "}
             <motion.span
               className="hero_tag lowercase text-red-500 text-4xl md:text-5xl lg:text-6xl inline-block w-48 text-center" // Adjust width as needed
               key={currentWordIndex}
