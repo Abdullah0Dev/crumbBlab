@@ -72,11 +72,11 @@ const Hero = () => {
             communication, and feeling like no one cared as much as I did. It was infuriating. I knew there had to be a
             better way.
             <br /> <br />
-            That's why I built <span className="text-red-500">Crumblab</span>. I was sick of the excuses, the delays,
+            That's why I built <span className="text-red-500">CrumbLab</span>. I was sick of the excuses, the delays,
             and the stress. You deserve a team that delivers—no BS, no runaround. We make IT & designing simple, fast,
             and reliable, because I've been in your shoes, and I know how frustrating it is when things just don't work.
             <br /> <br />
-            At <span className="text-red-500">Crumblab</span>, we get it right the first time. You focus on growing your
+            At <span className="text-red-500">CrumbLab</span>, we get it right the first time. You focus on growing your
             business—we'll handle the rest. Thank you for stopping by.
             <br />- <span className="text-red-500">Brian McQueen</span>
           </h3>

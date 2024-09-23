@@ -64,7 +64,7 @@ export const clientReviews = [
     position: 'Creative Director, PixelWave Studio',
     img: 'assets/review1.png',
     review:
-      'Working with CrumBlab on our logo design and brand guidelines was a seamless experience. They not only understood our vision but elevated it, delivering stunning designs that reflect our brand perfectly. Their professionalism and eye for detail made the entire process a breeze!',
+      'Working with CrumbLab on our logo design and brand guidelines was a seamless experience. They not only understood our vision but elevated it, delivering stunning designs that reflect our brand perfectly. Their professionalism and eye for detail made the entire process a breeze!',
   },
   {
     id: 2,
@@ -72,7 +72,7 @@ export const clientReviews = [
     position: 'Owner, SocialBoost Agency',
     img: 'assets/review2.png',
     review:
-      'CrumBlab completely transformed our social media presence! The banners and product posts they designed were spot-on with our branding. Their ability to blend creativity with our brand voice helped us stand out across all digital platforms. Absolutely recommend them!',
+      'CrumbLab completely transformed our social media presence! The banners and product posts they designed were spot-on with our branding. Their ability to blend creativity with our brand voice helped us stand out across all digital platforms. Absolutely recommend them!',
   },
   {
     id: 3,
@@ -80,7 +80,7 @@ export const clientReviews = [
     position: 'Founder, BrightFocus Marketing',
     img: 'assets/review3.png',
     review:
-      'CrumBlab’s SEO optimization and schema markup services were game changers for us. Our website’s performance and rankings saw significant improvements almost immediately. The team is incredibly skilled, responsive, and truly invested in helping us succeed.',
+      'CrumbLab’s SEO optimization and schema markup services were game changers for us. Our website’s performance and rankings saw significant improvements almost immediately. The team is incredibly skilled, responsive, and truly invested in helping us succeed.',
   },
   {
     id: 4,
@@ -88,7 +88,7 @@ export const clientReviews = [
     position: 'CEO, MotionPlus Media',
     img: 'assets/review4.png',
     review:
-      'The CrumBlab team took our video content to the next level. Their video editing and marketing video services were phenomenal, turning our footage into a polished final product that resonated with our audience. Their attention to detail and creative vision were unmatched!',
+      'The CrumbLab team took our video content to the next level. Their video editing and marketing video services were phenomenal, turning our footage into a polished final product that resonated with our audience. Their attention to detail and creative vision were unmatched!',
   },
   {
     id: 5,
@@ -96,7 +96,7 @@ export const clientReviews = [
     position: 'Company',
     img: 'assets/review5.jpg',
     review:
-      'CrumBlab did an amazing job designing our new logo. They took our vision and turned it into a simple, yet impactful design that truly represents our brand. We couldn’t be happier with the final result!',
+      'CrumbLab did an amazing job designing our new logo. They took our vision and turned it into a simple, yet impactful design that truly represents our brand. We couldn’t be happier with the final result!',
   },
   {
     id: 6,
@@ -104,7 +104,7 @@ export const clientReviews = [
     position: 'Company',
     img: 'assets/review6.jpg',
     review:
-      'CrumBlab nailed both our logo and website design! They created a fresh, modern look that perfectly aligns with our brand. Their attention to detail and creativity made all the difference, and we love how everything turned out.',
+      'CrumbLab nailed both our logo and website design! They created a fresh, modern look that perfectly aligns with our brand. Their attention to detail and creativity made all the difference, and we love how everything turned out.',
   },
 ];
 

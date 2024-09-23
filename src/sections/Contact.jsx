@@ -14,7 +14,7 @@ const Contact = () => {
   const { alert, showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState('-$1k');
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '', budget: '' });
 
   const handleChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value });
@@ -23,6 +23,9 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
+    // Set the selected budget to the form before submitting
+    setForm((prevForm) => ({ ...prevForm, budget: selected }));
+console.log(form.budget);
 
     emailjs
       .send(
@@ -33,7 +36,7 @@ const Contact = () => {
           to_name: 'Brain',
           from_email: form.email,
           to_email: 'brian@crumblab.com',
-          message: form.message,
+          message: ` ${form.message} \n \n Client Email ${form.email}  \n \n Budget: \n ${selected} `,
         },
         'HQoPFuxeKNMAX8H3i',
       )
@@ -44,7 +47,7 @@ const Contact = () => {
             show: true,
             text: 'Thank you, We are going to check it 😃',
             type: 'success',
-          });
+          }); 
 
           setTimeout(() => {
             hideAlert(false);
@@ -52,6 +55,7 @@ const Contact = () => {
               name: '',
               email: '',
               message: '',
+              budget: '',
             });
           }, [3000]);
         },
@@ -68,7 +72,6 @@ const Contact = () => {
       );
   };
 
-
   const { hash } = useLocation();
 
   useEffect(() => {
@@ -83,7 +86,7 @@ const Contact = () => {
     <section className="c-space my-20" id="contact">
       {alert.show && <Alert {...alert} />}
       <div className="hidden relative justify-center mb-[6.5rem] lg:flex">
-        <img src={'/assets/4-small.png'} className="relative z-1" width={255} height={255} alt="Sphere" /> 
+        <img src={'/assets/4-small.png'} className="relative z-1" width={255} height={255} alt="Sphere" />
         <div className="absolute top-1/2 left-1/2 w-[60rem] -translate-x-1/2 -translate-y-1/2 pointer-events-none">
           <img src={'/assets/stars.svg'} className="w-full" width={950} height={400} alt="Stars" />
         </div>

@@ -56,7 +56,7 @@ export default {
         sans: ['var(--font-sora)', ...fontFamily.sans],
         code: 'var(--font-code)',
         grotesk: 'var(--font-grotesk)',
-        generalsans: ['General Sans', 'sans-serif'],
+        generalsans: ['Lato', 'sans-serif'],
         custom: ['Lato', 'General Sans'],
       },
       letterSpacing: {
