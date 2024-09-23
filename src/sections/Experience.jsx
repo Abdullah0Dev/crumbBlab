@@ -10,8 +10,8 @@ const Experience = () => {
 
   useEffect(() => {
     const observerOptions = {
-      rootMargin: '-120px 0px -210px 0px', // Adjust margin for more accurate detection
-      threshold: 0.5, // Reduced threshold for earlier detection
+      rootMargin: '-20px 0px -80px 0px', // Adjust margin for more accurate detection
+      threshold: 0.6, // Reduced threshold for earlier detection
     };
 
 
