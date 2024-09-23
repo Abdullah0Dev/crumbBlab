@@ -68,7 +68,7 @@ const Experience = () => {
   }, []);
 
   return (
-    <section className="c-space my-20 " id="services">
+    <section className="c-space  my-20 " id="services">
       <h3 className="head-text">Our Services</h3>
       <div className={`  ${isAccordion ? 'w-full mt-12' : ' grid pt-16 grid-cols-2'} `}>
         {/* Left side */}
