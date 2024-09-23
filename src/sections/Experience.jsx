@@ -10,13 +10,12 @@ const Experience = () => {
 
   useEffect(() => {
     const observerOptions = {
-      rootMargin: '-20px 0px -80px 0px', // Adjust margin for more accurate detection
-      threshold: 0.6, // Reduced threshold for earlier detection
+      rootMargin: '-20px 0px -20px 0px', // Adjust margin for more accurate detection
+      threshold: 0.8, // Reduced threshold for earlier detection
     };
 
-
     const observerCallback = (entries) => {
-      if (manualOverride) return;
+      if (manualOverride) return; // Prevent observer callback if manually overridden
 
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -34,28 +33,26 @@ const Experience = () => {
     return () => {
       observer.disconnect();
     };
-  }, [manualOverride]);
+  }, [manualOverride]); // Dependency ensures effect runs when manualOverride changes
 
   const handleDevClick = (category) => {
     const serviceElement = serviceRefs.current.find((ref) => ref.getAttribute('data-category') === category);
 
-    setActiveService(category);
-    setManualOverride(true);
+    setActiveService(category); // Update active state to clicked item
+    setManualOverride(true); // Prevent observer from interfering
 
     if (serviceElement) {
       serviceElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
       setTimeout(() => {
-        setManualOverride(false);
-      }, 1000);
+        setManualOverride(false); // Re-enable observer
+      }, 1000); // Adjust timeout as needed
     }
   };
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 833) {
-        console.log(window.innerWidth);
-
         setIsAccordion(true);
       } else {
         setIsAccordion(false);
@@ -96,7 +93,8 @@ const Experience = () => {
                   ) : (
                     <button
                       className={`flex gap-x-2 items-center ${activeService === item.text ? 'text-red-500' : 'text-white/50'}`}
-                      onClick={() => handleDevClick(item.text)}>
+                      onClick={() => handleDevClick(item.text)} // Make sure this passes the correct category
+                    >
                       <div
                         className={`flex items-center justify-center p-[5px] rounded-full ${activeService === item.text ? 'bg-red-500' : 'bg-black-500'}`}>
                         <img src={item.icon} alt={item.text} />
@@ -113,7 +111,7 @@ const Experience = () => {
         {/* Right side */}
         {!isAccordion && (
           <div className="w-2/3 ">
-            <div className="space-y-12">
+            <div className="space-y-52">
               {serviceData.map((item, index) => (
                 <div key={index} data-category={item.yellowCircle} ref={(el) => (serviceRefs.current[index] = el)}>
                   <ServiceItem
@@ -159,22 +157,19 @@ const serviceData = [
     yellowCircle: 'BAI',
     serviceCategory: 'Branding & identity',
     serviceSection: 'Where your brand comes to life.',
-      data: [
+    data: [
       { service: 'Logo Design' },
       { service: 'Product Design' },
       { service: 'Animated Logo' },
       { service: 'Brand Guidelines' },
-      { service: 'Business Cards' }, 
-    
-    ] 
-    
+      { service: 'Business Cards' },
+    ],
   },
   {
     yellowCircle: 'DP',
     serviceCategory: 'Digital Presence',
     serviceSection: 'Making your mark online.',
     data: [
-    
       { service: 'Social Media Banners' },
       { service: 'Product Posts editing' },
       { service: 'YouTube/Video Thumbnails' },
@@ -190,7 +185,7 @@ const serviceData = [
     yellowCircle: 'WAO',
     serviceCategory: 'Website And Other',
     serviceSection: 'Building digital experiences that matter.',
-    data: [ 
+    data: [
       { service: 'Website Design/redesign' },
       { service: '3D Product Model' },
       { service: 'SEO Onsite' },
@@ -198,7 +193,7 @@ const serviceData = [
       { service: 'Schema Markup' },
       { service: 'Video' },
       { service: 'Video Editing' },
-      { service: 'Marketing Video' }
+      { service: 'Marketing Video' },
     ],
   },
 ];
