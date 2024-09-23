@@ -158,7 +158,7 @@ const serviceData = [
   {
     yellowCircle: 'BAI',
     serviceCategory: 'Branding & identity',
-    serviceSection: 'Research & Development STAGE',
+    serviceSection: 'Where your brand comes to life.',
       data: [
       { service: 'Logo Design' },
       { service: 'Product Design' },
@@ -172,7 +172,7 @@ const serviceData = [
   {
     yellowCircle: 'DP',
     serviceCategory: 'Digital Presence',
-    serviceSection: 'Research & Development STAGE',
+    serviceSection: 'Making your mark online.',
     data: [
     
       { service: 'Social Media Banners' },
@@ -189,7 +189,7 @@ const serviceData = [
   {
     yellowCircle: 'WAO',
     serviceCategory: 'Website And Other',
-    serviceSection: 'Research & Development STAGE',
+    serviceSection: 'Building digital experiences that matter.',
     data: [ 
       { service: 'Website Design/redesign' },
       { service: '3D Product Model' },

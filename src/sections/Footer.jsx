@@ -8,7 +8,7 @@ const Footer = () => {
       </div>
 
       <div className="flex gap-3">
-        <div className="social-icon">
+        {/* <div className="social-icon">
           <img src="/assets/github.svg" alt="github" className="w-1/2 h-1/2" />
         </div>
         <div className="social-icon">
@@ -16,7 +16,7 @@ const Footer = () => {
         </div>
         <div className="social-icon">
           <img src="/assets/instagram.svg" alt="instagram" className="w-1/2 h-1/2" />
-        </div>
+        </div> */}
       </div>
 
       <p className="text-white-500">© 2024 CrumbLab. All rights reserved.</p>
