@@ -153,7 +153,7 @@ const Contact = () => {
               <span className="field-label">How did you hear about us?</span>
               <input
                 type="text"
-                name="name"
+                name="refer"
                 value={form.refer}
                 onChange={handleChange}
                 required
