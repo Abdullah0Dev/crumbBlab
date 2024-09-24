@@ -64,7 +64,12 @@ const Experience = () => {
 
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  const [openIndex, setOpenIndex] = useState(null);
 
+  const toggleAccordion = (index) => {
+    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+  
   return (
     <section className="c-space  my-20 " id="services">
       <h3 className="head-text">Our Services</h3>
@@ -76,20 +81,22 @@ const Experience = () => {
               {devData.map((item, index) => (
                 <div key={index}>
                   {isAccordion ? (
-                    <AccordionItem
-                      title={item.serviceCategory}
-                      icon={item.icon}
-                      content={
-                        <ServiceItem
-                          data={serviceData[index].data}
-                          serviceCategory={serviceData[index].serviceCategory}
-                          serviceSection={serviceData[index].serviceSection}
-                          yellowCircle={serviceData[index].yellowCircle}
-                          isActive={activeService === serviceData[index].yellowCircle}
-                          isAccordion={isAccordion}
-                        />
-                      }
-                    />
+                   <AccordionItem
+                   key={index}
+                   title={item.serviceCategory}
+                   icon={item.icon}
+                   content={
+                     <ServiceItem
+                       data={serviceData[index].data}
+                       serviceCategory={serviceData[index].serviceCategory}
+                       serviceSection={serviceData[index].serviceSection}
+                       yellowCircle={serviceData[index].yellowCircle}
+                       isAccordion={isAccordion}
+                     />
+                   }
+                   isOpen={openIndex === index} // Check if it's open
+                   onClick={() => toggleAccordion(index)} // Toggle the accordion
+                 />
                   ) : (
                     <button
                       className={`flex gap-x-2 items-center ${activeService === item.text ? 'text-red-500' : 'text-white/50'}`}
