@@ -14,7 +14,7 @@ const Contact = () => {
   const { alert, showAlert, hideAlert } = useAlert();
   const [loading, setLoading] = useState(false);
   const [selected, setSelected] = useState('-$1k');
-  const [form, setForm] = useState({ name: '', email: '', message: '', budget: '' });
+  const [form, setForm] = useState({ name: '', email: '', message: '', budget: '', refer: '' });
 
   const handleChange = ({ target: { name, value } }) => {
     setForm({ ...form, [name]: value });
@@ -25,7 +25,7 @@ const Contact = () => {
     setLoading(true);
     // Set the selected budget to the form before submitting
     setForm((prevForm) => ({ ...prevForm, budget: selected }));
-console.log(form.budget);
+    console.log(form.budget);
 
     emailjs
       .send(
@@ -36,7 +36,7 @@ console.log(form.budget);
           to_name: 'Brain',
           from_email: form.email,
           to_email: 'brian@crumblab.com',
-          message: ` ${form.message} \n \n Client Email ${form.email}  \n \n Budget: \n ${selected} `,
+          message: ` ${form.message} \n \n Client Email ${form.email}  \n \n Budget: \n ${selected} \n \n I heard about you from: ${form.refer} `,
         },
         'HQoPFuxeKNMAX8H3i',
       )
@@ -47,7 +47,7 @@ console.log(form.budget);
             show: true,
             text: 'Thank you, We are going to check it 😃',
             type: 'success',
-          }); 
+          });
 
           setTimeout(() => {
             hideAlert(false);
@@ -56,6 +56,7 @@ console.log(form.budget);
               email: '',
               message: '',
               budget: '',
+              refer: '',
             });
           }, [3000]);
         },
@@ -85,7 +86,7 @@ console.log(form.budget);
   return (
     <section className="c-space my-20 " id="contact">
       {alert.show && <Alert {...alert} />}
-      
+
       <div className="relative  min-h-screen bg-opacity-15 rounded-3xl border border-zinc-600 bg-cover flex bg-[url(/assets/gradient.png)] items-center justify-center flex-col">
         <div className="contact-container">
           <h3 className="head-text">Hey! Lets chat about your project</h3>
@@ -147,6 +148,18 @@ console.log(form.budget);
                   </button>
                 ))}
               </div>
+            </label>
+            <label className="space-y-3">
+              <span className="field-label">How did you hear about us?</span>
+              <input
+                type="text"
+                name="name"
+                value={form.refer}
+                onChange={handleChange}
+                required
+                className="field-input"
+                placeholder="ex., Facebook"
+              />
             </label>
             <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
               <CustomButton className="w-full mb-6  rounded-tr-[22px]" disabled={loading} white={false}>

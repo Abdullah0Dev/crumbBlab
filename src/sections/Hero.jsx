@@ -1,13 +1,6 @@
-import { Leva, useControls } from 'leva';
-import { Suspense, useEffect, useState } from 'react';
-import { Canvas } from '@react-three/fiber';
-import { useMediaQuery } from 'react-responsive';
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import {  useEffect, useState } from 'react'; 
 import { motion } from 'framer-motion';
-import Button from '../components/Button.jsx';
-import CanvasLoader from '../components/Loading.jsx';
-import Can from '../components/Can.jsx';
-import Card from '../components/Card.jsx';
+import Button from '../components/Button.jsx'; 
 
 const Hero = () => {
   const words = [
@@ -78,6 +71,7 @@ const Hero = () => {
             <br /> <br />
             At <span className="text-red-500">CrumbLab</span>, we get it right the first time. You focus on growing your
             business—we'll handle the rest. Thank you for stopping by.
+            <br />
             <br />- <span className="text-red-500">Brian McQueen</span>
           </h3>
         </div>
