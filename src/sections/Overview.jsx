@@ -44,7 +44,9 @@ const Overview = () => {
               className="flex group max-[410px]:pl-2 gap-x-3 pt-20 items-center"
               whileHover={{ scale: 1.05, x: 30 }} // Optional scale effect on hover
             >
-              <motion.button className="border  border-red-500 py-[1px] px-1 rounded-full">
+              <motion.button 
+              aria-label="Explore Our Service"
+              className="border  border-red-500 py-[1px] px-1 rounded-full">
                 <motion.div
                   whileHover={{ x: 5 }} // Move the arrow to the right on hover of the parent
                   transition={{ duration: 0.3 }}>

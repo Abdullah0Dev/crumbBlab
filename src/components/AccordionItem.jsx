@@ -15,10 +15,13 @@ const AccordionItem = ({ title, icon, content, isAccordion, isOpen, onClick }) =
     <div className="w-full">
       <div className={`b ${isAccordion ? 'border-yellow-500' : 'border-white'} text-white rounded-2xl`}>
         <button
+        aria-label="Toggle Accordion"
           onClick={onClick}
           className="w-full px-5 text-left py-3 font-semibold flex justify-between items-center border border-white rounded-2xl">
           <div className="flex items-center bg-red-500 justify-center p-[5px] rounded-full border border-red-500">
-            <img src={icon} alt="icon" />
+            <img 
+            loading="lazy"
+            src={icon} alt="icon" />
           </div>
 
           {windowWidth >= 470 ? <p className="font-custom">{title}</p> : <p className="text-sm">{title}</p>}

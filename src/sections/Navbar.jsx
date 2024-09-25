@@ -70,6 +70,7 @@ const Navbar = () => {
           </a>
 
           <button
+          
             onClick={toggleMenu}
             className="text-white hover:text-white focus:outline-none sm:hidden flex"
             aria-label="Toggle menu">

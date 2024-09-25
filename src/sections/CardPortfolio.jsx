@@ -30,6 +30,7 @@ const CardPortfolio = () => {
               Reality?
               {` `}
               <img
+              loading="lazy"
                 src={curve}
                 className="absolute top-full left-0 w-full xl:-mt-2"
                 width={624}

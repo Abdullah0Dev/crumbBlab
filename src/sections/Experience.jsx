@@ -99,12 +99,15 @@ const Experience = () => {
                  />
                   ) : (
                     <button
+                    aria-label="choose category"
                       className={`flex gap-x-2 items-center ${activeService === item.text ? 'text-red-500' : 'text-white/50'}`}
                       onClick={() => handleDevClick(item.text)} // Make sure this passes the correct category
                     >
                       <div
                         className={`flex items-center justify-center p-[5px] rounded-full ${activeService === item.text ? 'bg-red-500' : 'bg-black-500'}`}>
-                        <img src={item.icon} alt={item.text} />
+                        <img 
+                        loading="lazy"
+                        src={item.icon} alt={item.text} />
                       </div>
                       <h2 className="text-sm">{item.text}</h2>
                     </button>

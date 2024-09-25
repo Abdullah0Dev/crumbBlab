@@ -137,7 +137,9 @@ const Contact = () => {
               <span className="field-label">Project budget (USD): </span>
               <div className=" flex gap-x-8 flex-wrap gap-y-9">
                 {budgetData.map((item, index) => (
-                  <button type="button" key={index} onClick={() => setSelected(item.amount)}>
+                  <button
+                  aria-label="choose amount"
+                  type="button" key={index} onClick={() => setSelected(item.amount)}>
                     <span
                       className={`cursor-pointer bg-n-6 px-5 py-3 rounded-lg text-lg ${
                         selected === item.amount ? ' text-n-1 border-n-4 border' : 'text-n-3  '
