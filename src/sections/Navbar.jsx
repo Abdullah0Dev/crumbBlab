@@ -66,15 +66,26 @@ const Navbar = () => {
       <div className="max-w-3xl mx-auto bg-[#ffffff1a] rounded-3xl bg-opacity-50 backdrop-blur-md">
         <div className="flex justify-between items-center py-3 mx-auto c-space">
           <a href="/" className="text-white font-bold text-xl hover:text-white transition-colors">
-            <img src={logoSrc} className={`h-5 object-contain logo-transition ${fadeClass}`} alt="logo" />
+            <img 
+              src={logoSrc} 
+              className={`h-5 object-contain logo-transition ${fadeClass}`} 
+              alt="logo"
+              width="150"  // Explicit width
+              height="35"  // Explicit height
+            />
           </a>
 
           <button
-          
             onClick={toggleMenu}
             className="text-white hover:text-white focus:outline-none sm:hidden flex"
             aria-label="Toggle menu">
-            <img src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} alt="toggle menu" className="w-6 h-6" />
+            <img 
+              src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} 
+              alt="toggle menu" 
+              className="w-6 h-6"
+              width="24"  // Explicit width
+              height="24"  // Explicit height
+            />
           </button>
 
           <nav className="sm:flex hidden">

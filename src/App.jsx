@@ -2,9 +2,9 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Lazy load components
-const Hero = lazy(() => import('./sections/Hero.jsx'));
 const Footer = lazy(() => import('./sections/Footer.jsx'));
-const Navbar = lazy(() => import('./sections/Navbar.jsx'));
+import Navbar from './sections/Navbar.jsx';
+import Hero from './sections/Hero.jsx';
 const Contact = lazy(() => import('./sections/Contact.jsx'));
 const Clients = lazy(() => import('./sections/Clients.jsx'));
 const Portfolio = lazy(() => import('./Portfolio.jsx'));
@@ -14,13 +14,9 @@ const Overview = lazy(() => import('./sections/Overview.jsx'));
 const MainLayout = () => {
   return (
     <main className="overflow-x-clip relative">
-      <Suspense fallback={<div>Loading Navbar...</div>}>
-        <Navbar />
-      </Suspense>
+      <Navbar />
 
-      <Suspense fallback={<div>Loading Hero...</div>}>
-        <Hero />
-      </Suspense>
+      <Hero />
 
       <Suspense fallback={<div>Loading Overview...</div>}>
         <Overview />
@@ -51,11 +47,14 @@ const App = () => {
       <Suspense fallback={<div>Loading Page...</div>}>
         <Routes>
           <Route path="/" element={<MainLayout />} />
-          <Route path="/portfolio" element={
-            <Suspense fallback={<div>Loading Portfolio...</div>}>
-              <Portfolio />
-            </Suspense>
-          } />
+          <Route
+            path="/portfolio"
+            element={
+              <Suspense fallback={<div>Loading Portfolio...</div>}>
+                <Portfolio />
+              </Suspense>
+            }
+          />
         </Routes>
       </Suspense>
     </Router>
