@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoadingPages from './components/LoadingPages.jsx'; // Import the LoadingPages component
 import Navbar from './sections/Navbar.jsx';
 import Hero from './sections/Hero.jsx';
+import Overview from './sections/Overview.jsx';
 
 const Footer = lazy(() => import('./sections/Footer.jsx'));
 const Contact = lazy(() => import('./sections/Contact.jsx'));
 const Clients = lazy(() => import('./sections/Clients.jsx'));
 const Portfolio = lazy(() => import('./Portfolio.jsx'));
 const WorkExperience = lazy(() => import('./sections/Experience.jsx'));
-const Overview = lazy(() => import('./sections/Overview.jsx'));
+// const Overview = lazy(() => import('./sections/Overview.jsx'));
 
 const MainLayout = () => {
   return (
@@ -17,9 +18,9 @@ const MainLayout = () => {
       <Navbar />
       <Hero />
 
-      <Suspense fallback={<LoadingPages />}>
+      {/* <Suspense fallback={<LoadingPages />}> */}
         <Overview />
-      </Suspense>
+      {/* </Suspense> */}
 
       <Suspense fallback={<LoadingPages />}>
         <WorkExperience />
@@ -55,7 +56,7 @@ const App = () => {
             }
           />
         </Routes>
-      </Suspense>
+      </Suspense> 
     </Router>
   );
 };

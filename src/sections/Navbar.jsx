@@ -15,10 +15,10 @@ const NavItems = ({ onClick = () => {} }) => (
           {item.name}
         </a>
       </li>
-    ))}
+    ))}  
   </ul>
 );
-
+ 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [logoSrc, setLogoSrc] = useState('/assets/logo2.webp'); // Default logo
@@ -33,16 +33,18 @@ const Navbar = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
+          console.log(entry.isIntersecting); // Log intersection status
+
           if (entry.isIntersecting) {
             setFadeClass('fade-out');
             setTimeout(() => {
-              setLogoSrc('/assets/logo.png'); // Change to the new logo
+              setLogoSrc('assets/logo.png'); // Change to the new logo
               setFadeClass(''); // Remove fade-out class
             }, 500);
           } else {
             setFadeClass('fade-out');
             setTimeout(() => {
-              setLogoSrc('/assets/logo2.webp'); // Revert back to default logo
+              setLogoSrc('assets/logo2.webp'); // Revert back to default logo
               setFadeClass(''); // Remove fade-out class
             }, 500);
           }
@@ -59,21 +61,22 @@ const Navbar = () => {
     return () => {
       if (overviewSection) observer.unobserve(overviewSection);
     };
-  }, []);
+  }, []); 
+ 
 
   return (
     <header className="fixed top-10 left-0 right-0 z-50 backdrop-blur-xs">
       <div className="max-w-3xl mx-auto bg-[#ffffff1a] rounded-3xl bg-opacity-50 backdrop-blur-md">
         <div className="flex justify-between items-center py-3 mx-auto c-space">
           <a href="/" className="text-white font-bold text-xl hover:text-white transition-colors">
-            <img 
+            <img  
               src={logoSrc} 
-              className={`h-5 object-contain logo-transition ${fadeClass}`} 
+              className={` object-contain logo-transition ${fadeClass}`} 
               alt="logo"
               width="150"  // Explicit width
               height="35"  // Explicit height
             />
-          </a>
+          </a> 
 
           <button
             onClick={toggleMenu}
@@ -81,8 +84,7 @@ const Navbar = () => {
             aria-label="Toggle menu">
             <img 
               src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} 
-              alt="toggle menu" 
-              className="w-6 h-6"
+              alt="toggle menu"  
               width="24"  // Explicit width
               height="24"  // Explicit height
             />
