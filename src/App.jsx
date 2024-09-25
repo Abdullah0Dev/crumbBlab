@@ -1,10 +1,10 @@
 import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-// Lazy load components
-const Footer = lazy(() => import('./sections/Footer.jsx'));
+import LoadingPages from './components/LoadingPages.jsx'; // Import the LoadingPages component
 import Navbar from './sections/Navbar.jsx';
 import Hero from './sections/Hero.jsx';
+
+const Footer = lazy(() => import('./sections/Footer.jsx'));
 const Contact = lazy(() => import('./sections/Contact.jsx'));
 const Clients = lazy(() => import('./sections/Clients.jsx'));
 const Portfolio = lazy(() => import('./Portfolio.jsx'));
@@ -15,26 +15,25 @@ const MainLayout = () => {
   return (
     <main className="overflow-x-clip relative">
       <Navbar />
-
       <Hero />
 
-      <Suspense fallback={<div>Loading Overview...</div>}>
+      <Suspense fallback={<LoadingPages />}>
         <Overview />
       </Suspense>
 
-      <Suspense fallback={<div>Loading Experience...</div>}>
+      <Suspense fallback={<LoadingPages />}>
         <WorkExperience />
       </Suspense>
 
-      <Suspense fallback={<div>Loading Clients...</div>}>
+      <Suspense fallback={<LoadingPages />}>
         <Clients />
       </Suspense>
 
-      <Suspense fallback={<div>Loading Contact...</div>}>
+      <Suspense fallback={<LoadingPages />}>
         <Contact />
       </Suspense>
 
-      <Suspense fallback={<div>Loading Footer...</div>}>
+      <Suspense fallback={<LoadingPages />}>
         <Footer />
       </Suspense>
     </main>
@@ -44,13 +43,13 @@ const MainLayout = () => {
 const App = () => {
   return (
     <Router>
-      <Suspense fallback={<div>Loading Page...</div>}>
+      <Suspense fallback={<LoadingPages />}>
         <Routes>
           <Route path="/" element={<MainLayout />} />
           <Route
             path="/portfolio"
             element={
-              <Suspense fallback={<div>Loading Portfolio...</div>}>
+              <Suspense fallback={<LoadingPages />}>
                 <Portfolio />
               </Suspense>
             }
