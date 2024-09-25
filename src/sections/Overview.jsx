@@ -6,7 +6,7 @@ const Overview = () => {
   return (
     <section
       id="overview-section"
-      className="w-full max-sm:px-5 max-sm:py-12 min-h-screen bg-[#EFEFEF] flex items-center justify-center">
+      className="w-full max-sm:px-5 max-sm:my-12 min-h-screen bg-[#EFEFEF] flex items-center justify-center">
       <div className="max-w-3xl max-md:item-center  py-24 items-center">
         <div className="flex self-center max-xl:flex-col max-xl:gap-y-32 gap-x-44">
           <motion.div
