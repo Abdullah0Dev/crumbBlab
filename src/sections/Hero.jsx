@@ -29,8 +29,7 @@ const Hero = () => {
     return () => clearInterval(intervalId);
   }, [words.length]);
 
-  return (
-    //  justify-center  px-9 py-5 mb-5 max-xl:flex-col max-xl:gap-y-9 max-xl:py-40 items-center flex relative
+  return ( 
     <section className="min-h-screen w-full font-custom flex items-center py-5 justify-center max-xl:pt-32" id="home">
       <img src="/assets/spotlight2.png" alt="spotlight" className="absolute top-0 right-0 z-0" />
       <div className=" flex items-center justify-between w-full px-12 max-xl:px-5 gap-x-24 max-xl:flex-col">
@@ -38,7 +37,7 @@ const Hero = () => {
           <h1 className="hero_tag_main text-white text-4xl md:text-5xl lg:text-6xl">
             Together, we'll help <br className='max-xl:hidden' /> you {" "}
             <motion.span
-              className="hero_tag lowercase text-red-500 text-4xl md:text-5xl lg:text-6xl inline-block w-48 text-center" // Adjust width as needed
+              className="hero_tag lowercase text-red-500 text-4xl md:text-5xl lg:text-6xl inline-block w-48 text-center"  
               key={currentWordIndex}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}

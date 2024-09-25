@@ -1,40 +1,6 @@
-import {
-  benefitIcon1,
-  benefitIcon2,
-  benefitIcon3,
-  benefitIcon4,
-  benefitImage2,
-  chromecast,
-  disc02,
-  discord,
-  discordBlack,
-  facebook,
-  figma,
-  file02,
-  framer,
-  homeSmile,
-  instagram,
-  notification2,
-  notification3,
-  notification4,
-  notion,
-  photoshop,
-  plusSquare,
-  protopie,
-  raindrop,
-  recording01,
-  recording03,
-  roadmap1,
-  roadmap2,
-  roadmap3,
-  roadmap4,
-  searchMd,
-  slack,
-  sliders04,
-  telegram,
-  twitter,
+import {  
   yourlogo,
-} from "../assets";
+} from '../assets';
 export const navLinks = [
   {
     id: 1,
@@ -55,7 +21,7 @@ export const navLinks = [
     id: 4,
     name: 'Contact',
     href: '#contact',
-  }, 
+  },
   {
     id: 5,
     name: 'Portfolio',
@@ -112,7 +78,6 @@ export const clientReviews = [
       'CrumbLab nailed both our logo and website design! They created a fresh, modern look that perfectly aligns with our brand. Their attention to detail and creativity made all the difference, and we love how everything turned out.',
   },
 ];
-
 
 export const myProjects = [
   {
@@ -233,179 +198,7 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
     ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-24, 10, 0],
     targetPosition: isSmall ? [-5, -10, -10] : isMobile ? [-9, -10, -10] : isTablet ? [-11, -7, -10] : [-13, -13, -10],
   };
-};
-
-export const workExperience = [
-  {
-    id: 1,
-    title: 'Full Stack Dev',
-    desc: 'Played a role in developing both the backend and frontend of a mobile platform with React Native and Node.js, boosting its interactivity.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/exp1.svg',
-  },
-  {
-    id: 2,
-    title: 'Mobile App Dev - Upwork',
-    desc: 'developed and Improve  mobile apps for both iOS & Android platforms using React Native.',
-    className: 'md:col-span-2', // change to md:col-span-2
-    thumbnail: '/assets/exp2.svg',
-  },
-  {
-    id: 3,
-    title: 'Freelance App Dev Project',
-    desc: 'Led the dev of a mobile app for a client, from initial concept to deployment on app stores.',
-    className: 'md:col-span-2', // change to md:col-span-2
-    thumbnail: '/assets/exp3.svg',
-  },
-  {
-    id: 4,
-    title: 'Lead Frontend Developer',
-    desc: 'Developed and maintained user-facing features using modern frontend technologies.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/exp4.svg',
-  },
-];
-
-export const servicesOffered = [
-  {
-    id: 1,
-    title: 'Creative Logo Design',
-    desc: "Craft unique and memorable logo designs tailored to represent your brand's identity with precision.",
-    className: 'md:col-span-2',
-    thumbnail: '/assets/logo-design.png',
-  },
-  {
-    id: 2,
-    title: 'Animated Logo Creation',
-    desc: 'Bring your logo to life with stunning animations that enhance brand recognition and engagement.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/exp2.svg',
-  },
-  {
-    id: 3,
-    title: 'Brand Guidelines Development',
-    desc: 'Establish a consistent brand identity with a comprehensive set of guidelines for logos, fonts, colors, and more.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/brand.png',
-  },
-  {
-    id: 4,
-    title: 'Business Card Design',
-    desc: 'Create professional business cards that leave a lasting impression and effectively represent your brand.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/business-card-design.png',
-  },
-  {
-    id: 5,
-    title: 'Digital Presence Strategy',
-    desc: 'Build and optimize your online presence to reach a wider audience through digital channels.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/exp3.svg',
-  },
-  {
-    id: 6,
-    title: 'Social Media Banner Design',
-    desc: "Design visually appealing banners that boost your brand's presence across various social media platforms.",
-    className: 'md:col-span-2',
-    thumbnail: '/assets/social-media.png',
-  },
-  {
-    id: 7,
-    title: 'Product Post Editing',
-    desc: 'Edit and enhance product posts to make them more engaging and visually appealing.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/video-marketing.png',
-  },
-  {
-    id: 8,
-    title: 'Backlink Creation',
-    desc: 'Improve your website’s SEO with high-quality backlinks that increase its authority and search ranking.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/backlink-checker.png',
-  },
-  {
-    id: 9,
-    title: 'Social Media Post Captions',
-    desc: 'Craft compelling and on-brand captions that resonate with your target audience and boost engagement.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/cc.png',
-  },
-  {
-    id: 10,
-    title: 'Social Media Post Editing',
-    desc: 'Enhance your social media posts with professional editing to increase reach and interaction.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/social-media-1.png',
-  },
-  {
-    id: 11,
-    title: 'Custom Social Media Templates',
-    desc: 'Design eye-catching templates for your social media channels, ensuring brand consistency.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/social-media.png',
-  },
-  {
-    id: 12,
-    title: 'Email Copywriting',
-    desc: 'Write persuasive and engaging email content that drives conversions and improves click-through rates.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/email.png',
-  },
-  {
-    id: 13,
-    title: 'Email Template Design',
-    desc: 'Design clean and responsive email templates that effectively deliver your message across devices.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/email.png',
-  },
-  {
-    id: 14,
-    title: 'Website Design & Development',
-    desc: 'Create or redesign a stunning and functional website that aligns with your brand and business goals.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/app-development.png',
-  },
-  {
-    id: 15,
-    title: 'Onsite SEO Optimization',
-    desc: 'Boost your website’s visibility by optimizing content, structure, and keywords for search engines.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/seo.png',
-  },
-  {
-    id: 16,
-    title: 'Page Speed Optimization',
-    desc: 'Improve website loading times to enhance user experience and search engine ranking.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/speed-radar.png',
-  },
-  {
-    id: 17,
-    title: 'Schema Markup Implementation',
-    desc: 'Integrate structured data into your website to boost its search visibility and provide rich snippets.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/diagram.png',
-  },
-  {
-    id: 18,
-    title: 'Professional Video Editing',
-    desc: 'Create polished and engaging videos that captivate your audience and communicate your message effectively.',
-    className: 'md:col-span-2',
-    thumbnail: '/assets/film-editing.png',
-  },
-  {
-    id: 19,
-    title: 'Marketing Video Production',
-    desc: "Develop high-quality marketing videos that tell your brand's story and promote your products or services.",
-    className: 'md:col-span-2',
-    thumbnail: '/assets/advertise.png',
-  },
-];
-
-
+};  
 
 export const companyLogos = [yourlogo, yourlogo, yourlogo, yourlogo, yourlogo];
-
-export const notificationImages = [notification4, notification3, notification2];
-
-export const heroIcons = [homeSmile, file02, searchMd, plusSquare];
+ 

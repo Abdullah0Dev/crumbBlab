@@ -36,7 +36,7 @@ const Navbar = () => {
           if (entry.isIntersecting) {
             setFadeClass('fade-out');
             setTimeout(() => {
-              setLogoSrc('/assets/logo.webp'); // Change to the new logo
+              setLogoSrc('/assets/logo.png'); // Change to the new logo
               setFadeClass(''); // Remove fade-out class
             }, 500);
           } else {
@@ -73,7 +73,7 @@ const Navbar = () => {
             onClick={toggleMenu}
             className="text-white hover:text-white focus:outline-none sm:hidden flex"
             aria-label="Toggle menu">
-            <img src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} alt="toggle" className="w-6 h-6" />
+            <img src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} alt="toggle menu" className="w-6 h-6" />
           </button>
 
           <nav className="sm:flex hidden">
