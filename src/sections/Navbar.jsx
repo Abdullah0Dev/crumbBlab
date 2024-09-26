@@ -52,7 +52,7 @@ const Navbar = () => {
       },
       {
         threshold: 0.5,
-        rootMargin: '380px 0px -240px 0px',
+        rootMargin: '390px 0px -320px 0px',
       },
     );
 
