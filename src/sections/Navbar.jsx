@@ -15,10 +15,10 @@ const NavItems = ({ onClick = () => {} }) => (
           {item.name}
         </a>
       </li>
-    ))}  
+    ))}
   </ul>
 );
- 
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [logoSrc, setLogoSrc] = useState('/assets/logo2.webp'); // Default logo
@@ -30,6 +30,76 @@ const Navbar = () => {
   useEffect(() => {
     const overviewSection = document.getElementById('overview-section');
 
+    // Determine the device width to set the correct rootMargin
+
+    // Determine the device height to set the correct rootMargin
+    const deviceHeight = window.innerHeight;
+    let rootMarginTop;
+    let rootMarginBottom;
+
+    // Set rootMargin based on specified height range
+    if (deviceHeight <= 550) {
+      rootMarginTop = `${-deviceHeight * 0.285}px`;
+      rootMarginBottom = '360px'; // `${deviceHeight * 0.6}px`;
+    } else if (deviceHeight <= 620) {
+      rootMarginTop = `${-deviceHeight * 0.13}px`;
+      rootMarginBottom = '370px'; // `${deviceHeight * 0.6}px`;
+    } else if (deviceHeight <= 700) {
+      rootMarginTop = `${-deviceHeight * 0.288}px`;
+      rootMarginBottom = '360px';
+    } else if (deviceHeight <= 750) {
+      rootMarginTop = `${-deviceHeight * 0.28}px`;
+      rootMarginBottom = '380px';
+    } else if (deviceHeight <= 790) {
+      rootMarginTop = `${-deviceHeight * 0.285}px`;
+      rootMarginBottom = '340px';
+    } else if (deviceHeight <= 850) {
+      rootMarginTop = `${-deviceHeight * 0.385}px`;
+      rootMarginBottom = '370px';
+    } else if (deviceHeight <= 900) {
+      rootMarginTop = `${-deviceHeight * 0.385}px`;
+      rootMarginBottom = '400px';
+    } else if (deviceHeight <= 950) {
+      rootMarginTop = `${-deviceHeight * 0.395}px`;
+      rootMarginBottom = '400px';
+    } else if (deviceHeight <= 1000) {
+      rootMarginTop = `${-deviceHeight * 0.285}px`;
+      rootMarginBottom = '340px';
+    } else if (deviceHeight <= 1080) {
+      rootMarginTop = `${-deviceHeight * 0.395}px`;
+      rootMarginBottom = '420px';
+    } else if (deviceHeight <= 1200) {
+      rootMarginTop = `${-deviceHeight * 0.41}px`;
+      rootMarginBottom = '490px';
+    } else if (deviceHeight <= 1400) {
+      rootMarginTop = `${-deviceHeight * 0.42}px`;
+      rootMarginBottom = '590px';
+    } else {
+      rootMarginTop = `${-deviceHeight * 0.44}px`;
+      rootMarginBottom = '600px';
+    }
+
+    // const deviceWidth = window.innerWidth;
+    // let rootMarginTop;
+    // let rootMarginBottom;
+
+    // Set rootMargin based on specified width range
+    // if (deviceWidth < 395) {
+    //   rootMarginTop = '-150px'; // For widths less than 395px
+    //   rootMarginBottom = '390px';
+    // } else if (deviceWidth <= 450) {
+    //   rootMarginTop = '-220px'; // For widths between 395px and 450px
+    //   rootMarginBottom = '360px';
+    // }
+    //  else if (deviceWidth <= 1000) {
+    //   rootMarginTop = '-320px'; // For widths above 450px
+    //   rootMarginBottom = '390px';
+    // }
+
+    // else {
+    //   rootMarginTop = '-380px'; // For widths above 450px
+    //   rootMarginBottom = '400px';
+    // }
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -52,7 +122,7 @@ const Navbar = () => {
       },
       {
         threshold: 0.5,
-        rootMargin: '390px 0px -320px 0px',
+        rootMargin: `${rootMarginBottom} 0px ${rootMarginTop} 0px`, // Dynamic rootMargin based on device width
       },
     );
 
@@ -61,32 +131,31 @@ const Navbar = () => {
     return () => {
       if (overviewSection) observer.unobserve(overviewSection);
     };
-  }, []); 
- 
+  }, []);
 
   return (
     <header className="fixed top-10 left-0 right-0 z-50 backdrop-blur-xs">
       <div className="max-w-3xl mx-auto bg-[#ffffff1a] rounded-3xl bg-opacity-50 backdrop-blur-md">
         <div className="flex justify-between items-center py-3 mx-auto c-space">
           <a href="/" className="text-white font-bold text-xl hover:text-white transition-colors">
-            <img  
-              src={logoSrc} 
-              className={` object-contain logo-transition ${fadeClass}`} 
+            <img
+              src={logoSrc}
+              className={`object-contain logo-transition ${fadeClass}`}
               alt="logo"
-              width="150"  // Explicit width
-              height="35"  // Explicit height
+              width="150" // Explicit width
+              height="35" // Explicit height
             />
-          </a> 
+          </a>
 
           <button
             onClick={toggleMenu}
             className="text-white hover:text-white focus:outline-none sm:hidden flex"
             aria-label="Toggle menu">
-            <img 
-              src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} 
-              alt="toggle menu"  
-              width="24"  // Explicit width
-              height="24"  // Explicit height
+            <img
+              src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'}
+              alt="toggle menu"
+              width="24" // Explicit width
+              height="24" // Explicit height
             />
           </button>
 

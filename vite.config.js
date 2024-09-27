@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     react(),
     sitemap({
-      hostname: 'https://crum-blab.vercel.app/', // Your site's URL
+      hostname: 'https://crumblab.com/', // Your site's URL
     }),
   ],
 })
