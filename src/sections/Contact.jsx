@@ -28,8 +28,8 @@ const Contact = () => {
 
     emailjs
       .send(
-        'service_bdutsco',
-        'template_uzait1p',
+        'service_y8lp181',  
+        'template_ev41f2k',
         {
           from_name: form.name,
           to_name: 'Brain',
@@ -37,7 +37,7 @@ const Contact = () => {
           to_email: 'brian@crumblab.com',
           message: ` ${form.message} \n \n Client Email ${form.email}  \n \n Budget: \n ${selected} \n \n I heard about you from: ${form.refer} `,
         },
-        'HQoPFuxeKNMAX8H3i',
+        'XEtuWKj3SZoAUbOvh',
       )
       .then(
         () => {
